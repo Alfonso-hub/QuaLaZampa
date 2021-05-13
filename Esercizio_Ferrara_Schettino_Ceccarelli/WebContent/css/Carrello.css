@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+.body{
+   text-align:center;
+} 
+
+html, body {
+width: 100%;
+	text-align:center;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+	width: auto;
+	
+}
+
+table, th, td {
+	justify-content:center;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 15px;
+}
