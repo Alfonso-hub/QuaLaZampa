@@ -15,11 +15,11 @@ import pacchetto.model.Carrello;
 
 
 @WebServlet("/Controllo2")
-public class MioControllo2 extends HttpServlet {
+public class ServletCarrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public MioControllo2() {
+    public ServletCarrello() {
         super();
         
     }

@@ -36,7 +36,7 @@ id_cliente int,
 foreign key (id_cliente) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-insert into dati_anagrafici values ("Luiggi", "Maranzullo", "081123456", "LG15P9KUP", 1);
+insert into dati_anagrafici values ("Luigi", "Greco", "081123456", "LG15P9KUP", 1);
 insert into dati_anagrafici values ("Claudia", "Rossi", "389557419", "CR145PK79S9", 2);
 insert into dati_anagrafici values ("Teresa", "Verdi", "0818745983", "TV45GT74T7", 3);
 

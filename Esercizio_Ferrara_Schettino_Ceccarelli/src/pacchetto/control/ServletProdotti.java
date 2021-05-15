@@ -14,12 +14,12 @@ import pacchetto.model.ProdottiModelDM;
 
 
 @WebServlet("/Controllo")
-public class MioControllo extends HttpServlet {
+public class ServletProdotti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	static ProdottiModelDM prod= new ProdottiModelDM();
 	
-	public MioControllo () {
+	public ServletProdotti () {
 		super ();
 	}
 	
