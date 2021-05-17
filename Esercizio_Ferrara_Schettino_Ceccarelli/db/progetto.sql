@@ -53,3 +53,33 @@ cap int not null,
 insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente) values ("via Garibaldi n.69", "Pompei", "Napoli", 80045, 2);
 insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente) values ("via Giuseppe Verdi n.15", "Fisciano", "Salerno", 8084, 3);
 
+create table acquista (
+id_cliente int,
+id_prodotto int,
+foreign key (id_cliente) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE,
+foreign key (id_prodotto) references prodotti (id_prodotto) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+create table ordine (
+id_ordine int primary key auto_increment,
+prezzo_totale float not null,
+stato_ordine varchar (25) not null,
+data_ordine date not null
+);
+
+create table effettua (
+id_cliente int,
+id_ordine int,
+foreign key (id_cliente) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE,
+foreign key (id_ordine) references ordine (id_ordine) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+create table inserito (
+iva float default 0.22,
+quantita int not null,
+prezzo float not null,
+id_prodotto int,
+id_ordine int,
+foreign key (id_prodotto) references prodotti (id_prodotto) ON DELETE SET NULL ON UPDATE CASCADE,
+foreign key (id_ordine) references ordine (id_ordine) ON DELETE SET NULL ON UPDATE CASCADE
+);
