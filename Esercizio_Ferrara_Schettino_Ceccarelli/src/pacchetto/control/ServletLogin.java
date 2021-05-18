@@ -38,16 +38,6 @@ public class ServletLogin extends HttpServlet {
 					indirizzamento = "/PageLogin.jsp";
 					
 				}
-				String pass1=request.getParameter("new password");
-				String pass2=request.getParameter("rip password");
-				if(pass1.equals(pass2)) {
-					user.registraUtente(request.getParameter("nome"), request.getParameter("cognome"), request.getParameter("username"), request.getParameter("email"), pass1, request.getParameter("telefono"), request.getParameter("codice"));
-					request.getSession().setAttribute("accedi", true);
-					response.sendRedirect("ProdottiView.jsp");
-					
-				}else {
-					response.sendRedirect("LoginRegistrazione.jsp");
-				}
 				
 				
 			}catch(Exception e) {

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Registrazione</h1>
-<form action="Login" method="post">
+<form action="Registrazione" method="post">
 <p>Compila questo modulo per creare un account.</p>
 
 <label><b>Nome:</b></label>    

@@ -42,33 +42,39 @@ private static String TABELLA_NAME = "cliente";
 	public void registraUtente(String nome, String cognome, String username, String email, String password, String telefono, String cf) throws SQLException {
 	Connection con =null;
 	PreparedStatement pre= null;
-	String query = "INSERT INTO cliente(username, e_mail, password, amministratore) VALUES (?, ?, ?, 'NO')";
+	PreparedStatement prep= null;
+	String query = "INSERT INTO " + UtentiModelDM.TABELLA_NAME +" (username, e_mail, password, amministratore) VALUES (?, ?, ?, ?)";
+	String query1 = "INSERT INTO dati_anagrafici (nome, cognome, telefono, cf, id_cliente) VALUES (?, ?, ?, ?, (SELECT id_cliente FROM cliente WHERE id_cliente= ?))";
+	
 	try {
-		con = ConnectionPool.getConnection(); 
-
+		con = ConnectionPool.getConnection();
 		pre = con.prepareStatement(query);
 		pre.setString(1, username);
 		pre.setString(2, email);
 		pre.setString(3, password);
+		pre.setString(4, "NO");
 	
 		pre.executeUpdate();
 		
-		PreparedStatement prep1= null;
+		con.commit();
+		
 		ClienteBean clientenew = cercaUtente(email, password); 
-		String query1 = "INSERT INTO dati_anagrafici (nome, cognome, telefono, cf, id_cliente) VALUES (?, ?, ?, ?, ?)";
-		prep1 = con.prepareStatement(query1);
-		prep1.setString(1, nome);
-		prep1.setString(2, cognome);
-		prep1.setString(3, telefono);
-		prep1.setString(4, cf);
-		prep1.setInt(5, clientenew.getId());
+		prep = con.prepareStatement(query1);
+		prep.setString(1, nome);
+		prep.setString(2, cognome);
+		prep.setString(3, telefono);
+		prep.setString(4, cf);
+		prep.setInt(5, clientenew.getId());
 	
-		prep1.executeUpdate();
+		prep.executeUpdate();
+		
+		con.commit();
 		
 	}finally {
 		try {
-			if (pre != null)
+			if (pre != null && prep != null)
 				pre.close();
+				prep.close();
 		}
 		finally {
 			ConnectionPool.relaseConnection(con);
