@@ -63,6 +63,10 @@ if (prod != null && prod.size() != 0) {
 <a href="ProdottiCarrello.jsp">
 <input type="button" value="Vai al carrello">
 </a>
+<form action="Logout" method="post" >
+<input type="submit" value="Logout">
+
+</form>
 </div>
 </body>
 </html>

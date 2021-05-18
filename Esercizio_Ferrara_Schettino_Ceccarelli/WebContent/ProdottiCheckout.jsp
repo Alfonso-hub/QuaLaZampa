@@ -11,6 +11,9 @@
 <body>
 
 <%
+if(request.getSession().getAttribute("accedi")== null) {
+	response.sendRedirect("PageLogin.jsp");
+	}
 Carrello car= (Carrello) session.getAttribute("carrello");
 car.delete();
 session.setAttribute("carrello", car);

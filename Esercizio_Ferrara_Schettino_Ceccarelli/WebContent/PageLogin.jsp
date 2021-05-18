@@ -13,8 +13,8 @@
 <form action="Login" method="post">
 <p>Inserisci i tuoi dati per Accedere</p>
 
-<label><b>Username:</b></label><br>
-<input type="text" name="username" placeholder="Inserisci username" required><br><br>
+<label><b>Email:</b></label><br>
+<input type="text" name="email" placeholder="Inserisci email" required><br><br>
 <label><b>Password:</b></label><br> 
 <input type="password" name="password" placeholder="Inserisci password" required><br><br>
 
