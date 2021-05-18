@@ -42,7 +42,7 @@ private static String TABELLA_NAME = "cliente";
 	public void registraUtente(String nome, String cognome, String username, String email, String password, String telefono, String cf) throws SQLException {
 	Connection con =null;
 	PreparedStatement pre= null;
-	String query = "INSERT INTO cliente(username, e_mail, password, amministratore) VALUES (?, ?, ?, NO)";
+	String query = "INSERT INTO cliente(username, e_mail, password, amministratore) VALUES (?, ?, ?, 'NO')";
 	try {
 		con = ConnectionPool.getConnection(); 
 

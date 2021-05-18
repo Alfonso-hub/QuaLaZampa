@@ -36,19 +36,6 @@
 <label><b>Codice Fiscale:</b></label>
 <input type="text" name="codice" placeholder="Inserisci codice fiscale" required><br><br>
 
-<label><b>Via:</b></label> 
-<input type="text" name="via" placeholder="Inserisci via" required>
-
-<label><b>Citta:</b></label> 
-<input type="text" name="citta" placeholder="Inserisci citta" required><br><br>
-
-<label><b>Provincia:</b></label> 
-<input type="text" name="provincia" placeholder="Inserisci provincia" required>
-
-<label><b>Cap:</b></label> 
-<input type="text" name="cap" placeholder="Inserisci cap" required><br><br>
-
-
 <input type="submit" value="Registrati"><br>
 </form>
 <br><br>
