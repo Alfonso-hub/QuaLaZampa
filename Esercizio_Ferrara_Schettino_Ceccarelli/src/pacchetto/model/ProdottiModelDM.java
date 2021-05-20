@@ -63,7 +63,7 @@ public class ProdottiModelDM implements ProdottiModel {
 				bean.setNome(res.getString("nome"));
 				bean.setDisponibilita(res.getString("disponibilita"));
 				bean.setQuantita(res.getInt("quantita"));
-				bean.setIva(res.getFloat("iva"));
+				bean.setIva(res.getFloat("iva_prodotti"));
 				bean.setDescrizione(res.getString("descrizione"));
 				bean.setPrezzo(res.getFloat("prezzo_base"));
 			}
@@ -102,7 +102,7 @@ public class ProdottiModelDM implements ProdottiModel {
 				pr.setNome(res.getString("nome"));
 				pr.setDisponibilita(res.getString("disponibilita"));
 				pr.setQuantita(res.getInt("quantita"));
-				pr.setIva(res.getFloat("iva"));
+				pr.setIva(res.getFloat("iva_prodotti"));
 				pr.setDescrizione(res.getString("descrizione"));
 				pr.setPrezzo(res.getFloat("prezzo_base"));
 				

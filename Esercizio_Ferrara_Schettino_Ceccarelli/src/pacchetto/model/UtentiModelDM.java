@@ -44,7 +44,7 @@ private static String TABELLA_NAME = "cliente";
 	PreparedStatement pre= null;
 	PreparedStatement prep= null;
 	String query = "INSERT INTO " + UtentiModelDM.TABELLA_NAME +" (username, e_mail, password, amministratore) VALUES (?, ?, ?, ?)";
-	String query1 = "INSERT INTO dati_anagrafici (nome, cognome, telefono, cf, id_cliente) VALUES (?, ?, ?, ?, (SELECT id_cliente FROM cliente WHERE id_cliente= ?))";
+	String query1 = "INSERT INTO dati_anagrafici (nome, cognome, telefono, cf, id_cliente_dati) VALUES (?, ?, ?, ?, (SELECT id_cliente FROM cliente WHERE id_cliente= ?))";
 	
 	try {
 		con = ConnectionPool.getConnection();

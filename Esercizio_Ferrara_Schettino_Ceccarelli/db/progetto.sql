@@ -5,7 +5,7 @@ id_prodotto int primary key auto_increment,
 nome varchar (50) not null,
 disponibilita enum ("SI", "NO") not null,
 quantita int default 0,
-iva float default 0.22,
+iva_prodotti float default 0.22,
 descrizione varchar (700) not null,
 prezzo_base float default 0 
 );
@@ -32,8 +32,8 @@ nome varchar(25) not null,
 cognome varchar(25) not null,
 telefono varchar(25) not null,
 cf varchar (50) primary key,
-id_cliente int,
-foreign key (id_cliente) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE
+id_cliente_dati int,
+foreign key (id_cliente_dati) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 insert into dati_anagrafici values ("Luigi", "Greco", "081123456", "LG15P9KUP", 1);
@@ -46,18 +46,18 @@ id_spadizione int primary key auto_increment,
 citta varchar(25) not null,
 provincia varchar(25) not null,
 cap int not null,
- id_cliente int,
- foreign key (id_cliente) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE
+ id_cliente_indirizzo int,
+ foreign key (id_cliente_indirizzo) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente) values ("via Garibaldi n.69", "Pompei", "Napoli", 80045, 2);
-insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente) values ("via Giuseppe Verdi n.15", "Fisciano", "Salerno", 8084, 3);
+insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) values ("via Garibaldi n.69", "Pompei", "Napoli", 80045, 2);
+insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) values ("via Giuseppe Verdi n.15", "Fisciano", "Salerno", 8084, 3);
 
 create table acquista (
-id_cliente int,
-id_prodotto int,
-foreign key (id_cliente) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE,
-foreign key (id_prodotto) references prodotti (id_prodotto) ON DELETE SET NULL ON UPDATE CASCADE
+id_cliente_acquista int,
+id_prodotto_acquista int,
+foreign key (id_cliente_acquista) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE,
+foreign key (id_prodotto_acquista) references prodotti (id_prodotto) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 create table ordine (
@@ -68,18 +68,18 @@ data_ordine date not null
 );
 
 create table effettua (
-id_cliente int,
-id_ordine int,
-foreign key (id_cliente) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE,
-foreign key (id_ordine) references ordine (id_ordine) ON DELETE SET NULL ON UPDATE CASCADE
+id_cliente_effettua int,
+id_ordine_effettua int,
+foreign key (id_cliente_effettua) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE,
+foreign key (id_ordine_effettua) references ordine (id_ordine) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 create table inserito (
-iva float default 0.22,
-quantita int not null,
-prezzo float not null,
-id_prodotto int,
-id_ordine int,
-foreign key (id_prodotto) references prodotti (id_prodotto) ON DELETE SET NULL ON UPDATE CASCADE,
-foreign key (id_ordine) references ordine (id_ordine) ON DELETE SET NULL ON UPDATE CASCADE
+iva_inserito float default 0.22,
+quantita_inserito int not null,
+prezzo_inserito float not null,
+id_prodotto_inserito int,
+id_ordine_inserito int,
+foreign key (id_prodotto_inserito) references prodotti (id_prodotto) ON DELETE SET NULL ON UPDATE CASCADE,
+foreign key (id_ordine_inserito) references ordine (id_ordine) ON DELETE SET NULL ON UPDATE CASCADE
 );

@@ -1,13 +1,13 @@
 package pacchetto.model;
 
-import java.util.GregorianCalendar;
+import java.sql.Date;
 
 public class OrdineBean {
 
 	int idOrdine;
 	float prezzoTot;
 	String statoOrdine;
-	GregorianCalendar dataOrdine;
+	Date dataOrdine;
 	
 	public OrdineBean() {
 		idOrdine=-1;
@@ -40,11 +40,11 @@ public class OrdineBean {
 		this.statoOrdine = statoOrdine;
 	}
 
-	public GregorianCalendar getDataOrdine() {
+	public Date getDataOrdine() {
 		return dataOrdine;
 	}
 
-	public void setDataOrdine(GregorianCalendar dataOrdine) {
+	public void setDataOrdine(Date dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
 	
