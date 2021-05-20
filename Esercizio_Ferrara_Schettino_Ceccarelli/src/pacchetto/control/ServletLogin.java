@@ -30,11 +30,11 @@ public class ServletLogin extends HttpServlet {
 				ClienteBean cerca = user.cercaUtente(email, pw);
 				if(cerca.getId() != -1) {
 			
-					request.getSession().setAttribute("accedi", true);
+					request.getSession().setAttribute("accedi", cerca);
 					indirizzamento = "/ProdottiView.jsp";
 					
 				}else {
-					request.getSession().setAttribute("accedi", false);
+					request.getSession().setAttribute("accedi", null);
 					indirizzamento = "/PageLogin.jsp";
 					
 				}

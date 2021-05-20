@@ -10,18 +10,20 @@ import java.sql.Date;
 public class OrdiniModelDM implements OrdiniModel {
 
 	
-	public void registraOrdine(int id_cliente, int id_prodotto, float prezzoTotale, String statoOrdine, Date data, int id_ordine, int quantit, float prezzo) throws SQLException {
+	public void registraOrdine(int id_cliente, int id_prodotto, float prezzoTotale, String statoOrdine, Date data, int quantit, float prezzo) throws SQLException {
 		
 		Connection con= null;
 		PreparedStatement prep= null;
 		PreparedStatement prep2= null;
 		PreparedStatement prep3= null;
 		PreparedStatement prep4= null;
+		PreparedStatement prep5= null;
 		String query= "INSERT INTO acquista VALUES (?, ?)";
 		String query2= "INSERT INTO ordine (prezzo_totale, stato_ordine, data_ordine) VALUES (?, ?, ?)";
-		String query3= "INSERT INTO inserito (quantita_inserito, prezzo_inserito, id_prodotto_inserito, id_ordine_inserito) VALUES (?, ?, ?, ?)";
-		String query4= "INSERT INTO effettua (id_cliente_effettua, id_ordine_effettua) VALUES (?, ?)";
-		
+		String query3="SELECT id_ordine FROM ordine";
+		String query4= "INSERT INTO inserito (quantita_inserito, prezzo_inserito, id_prodotto_inserito, id_ordine_inserito) VALUES (?, ?, ?, ?)";
+		String query5= "INSERT INTO effettua (id_cliente_effettua, id_ordine_effettua) VALUES (?, ?)";
+		int temp=0;
 		try {
 			con= ConnectionPool.getConnection();
 			prep= con.prepareStatement(query);
@@ -39,20 +41,28 @@ public class OrdiniModelDM implements OrdiniModel {
 			prep2.executeUpdate();
 			con.commit();
 			
-			prep3= con.prepareStatement(query3);
-			prep3.setInt(1, quantit);
-			prep3.setFloat(2, prezzo);
-			prep3.setInt(3, id_prodotto);
-			prep3.setInt(4, id_ordine);
-			
-			prep3.executeUpdate();
-			con.commit();
+			prep3=con.prepareStatement(query3);
+			ResultSet result= prep3.executeQuery();
+			while(result.next()) {
+				if(temp<result.getInt("id_ordine")) {
+					temp=result.getInt("id_ordine");
+				}
+			}
 			
 			prep4= con.prepareStatement(query4);
-			prep4.setInt(1, id_cliente);
-			prep4.setInt(2, id_ordine);
+			prep4.setInt(1, quantit);
+			prep4.setFloat(2, prezzo);
+			prep4.setInt(3, id_prodotto);
+			prep4.setInt(4, temp);
 			
 			prep4.executeUpdate();
+			con.commit();
+			
+			prep5= con.prepareStatement(query5);
+			prep5.setInt(1, id_cliente);
+			prep5.setInt(2, temp);
+			
+			prep5.executeUpdate();
 			con.commit();
 			
 		}

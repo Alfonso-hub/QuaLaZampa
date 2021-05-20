@@ -10,14 +10,6 @@
 </head>
 <body>
 
-<%
-if(request.getSession().getAttribute("accedi")== null) {
-	response.sendRedirect("PageLogin.jsp");
-	}
-Carrello car= (Carrello) session.getAttribute("carrello");
-car.delete();
-session.setAttribute("carrello", car);
-%>
 
 <h1> Grazie per aver utilizzato il nostro sito </h1>
 

@@ -50,9 +50,9 @@ Prezzo totale: <%= car.getCarrello().get(i).getTotPrezzo() %>
 }
 %>
 
-<a href="ProdottiCheckout.jsp">
-<input type="button" value="Effettua pagamento">
-</a> <br><br>
+<form action="Ordini" method="post">
+<input type="submit" value="Effettua pagamento">
+</form><br><br>
 
 <a href="ProdottiView.jsp">
 <input type="button" value="Torna alla lista prodotti">

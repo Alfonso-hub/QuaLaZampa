@@ -6,11 +6,12 @@ public class Carrello {
 	
 	private ArrayList<ProdottiBean> car;
 	private int dimensione;
-
+	private float tot;
 	
 	public Carrello () {
 		car= new ArrayList<ProdottiBean>();
 		dimensione= 0;
+		tot=0;
 		
 	}
 	
@@ -87,8 +88,6 @@ public class Carrello {
 	 */
 	public float getPrezzoTotale (int quant, int id) {
 		
-		float tot= 0;
-		
 		for (int i= 0; i < car.size(); i++) {
 			if (car.get(i).getId() == id) {
 				tot= car.get(i).getPrezzo() * quant;
@@ -98,7 +97,9 @@ public class Carrello {
 		return tot;
 	}
 	
-	
+	public float getTotale() {
+		return tot;
+	}
 
 
 }
