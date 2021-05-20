@@ -10,6 +10,7 @@ public class ProdottiBean {
 	String descrizione;
 	float prezzo;
 	float prezzotot;
+	int quantdesiderata;
 	
 	public ProdottiBean () {
 		id= -1;
@@ -20,6 +21,7 @@ public class ProdottiBean {
 		descrizione= "";
 		prezzo= 0;
 		prezzotot = 0;
+		quantdesiderata=0;
 	}
 
 	public int getId() {
@@ -84,6 +86,14 @@ public class ProdottiBean {
 	
 	public void setTotPrezzo(float prezzotot) {
 		this.prezzotot = prezzotot;
+	}
+	
+	public int getQuantitaDesiderata() {
+		return quantdesiderata;
+	}
+	
+	public void setQuantitaDesiderata(int q) {
+	this.quantdesiderata= q ;
 	}
 	
 	public String toString () {

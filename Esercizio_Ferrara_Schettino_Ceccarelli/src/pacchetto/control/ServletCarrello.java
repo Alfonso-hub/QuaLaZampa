@@ -32,7 +32,7 @@ public class ServletCarrello extends HttpServlet {
 		int id=  Integer.parseInt(request.getParameter("nascosto"));
 		int scelta= Integer.parseInt(request.getParameter("scelta"));
 		car.getPrezzoTotale(scelta, id);
-		
+		car.insertQuantita(id, scelta);
 		
 		RequestDispatcher dis= getServletContext().getRequestDispatcher("/ProdottiCarrello.jsp");
 		dis.forward(request, response);

@@ -1,6 +1,9 @@
 package pacchetto.control;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,8 +40,16 @@ public class ServletOrdini extends HttpServlet {
 		request.getSession().setAttribute("carrello", car);
 		*/
 		ClienteBean bean=(ClienteBean) request.getSession().getAttribute("accedi");
-		System.out.println("id cliente: " +bean.getId());
 		OrdiniModelDM ordini= new OrdiniModelDM();
-		ordini.registraOrdine(bean.getId(),/*id prodotto*/,car.getTotale(), "acquistato", data, quantit, prezzo);
-	}
+		Date data= new Date(System.currentTimeMillis());
+		
+		try {
+			for(int i = 0; i<car.getDimensione(); i++) {
+		ordini.registraOrdine(bean.getId(), car.getCarrello().get(i).getId(), car.getCarrello().get(i).getTotPrezzo(), "acquistato", data, car.getCarrello().get(i).getQuantitaDesiderata(), car.getCarrello().get(i).getPrezzo());
+			
+			}
+		}catch (SQLException e){
+		System.out.println("Error Ordine " + e.getMessage());
+		}
+		}
 }

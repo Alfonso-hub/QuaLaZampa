@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import pacchetto.model.ClienteBean;
 import pacchetto.model.UtentiModelDM;
 
 
@@ -38,7 +39,8 @@ public class ServletRegistrazione extends HttpServlet {
 		if (newPassword.equals(ripPassword)) {
 		try {
 			user.registraUtente(nome, cognome, username, email, ripPassword, telefono, cf);
-			request.getSession().setAttribute("accedi", true);
+			ClienteBean client = user.cercaUtente(email, ripPassword) ;
+			request.getSession().setAttribute("accedi", client);
 			redirect= "/ProdottiView.jsp";
 		} catch (SQLException e) {
 			System.out.println ("Errore nella registrazione: " + e.getMessage());

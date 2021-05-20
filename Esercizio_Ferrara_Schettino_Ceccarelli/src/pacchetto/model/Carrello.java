@@ -97,9 +97,11 @@ public class Carrello {
 		return tot;
 	}
 	
-	public float getTotale() {
-		return tot;
+	public void insertQuantita(int code, int q) {
+		for (int i= 0; i < car.size(); i++) {
+			if (car.get(i).getId() == code) {
+				car.get(i).setQuantitaDesiderata(q);
+			}
+		}
 	}
-
-
 }
