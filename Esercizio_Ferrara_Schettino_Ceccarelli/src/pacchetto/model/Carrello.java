@@ -97,9 +97,8 @@ public class Carrello {
 		return tot;
 	}
 	
-	public float getTotale() {
-		return tot;
+	public float getTotale(int t) {
+		return getCarrello().get(t).getTotPrezzo();
 	}
-
 
 }
