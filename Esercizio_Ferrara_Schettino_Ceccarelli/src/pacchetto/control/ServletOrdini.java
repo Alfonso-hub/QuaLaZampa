@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +42,6 @@ public class ServletOrdini extends HttpServlet {
 		OrdiniModelDM ordini= new OrdiniModelDM();
 		Date data= new Date(System.currentTimeMillis());
 		String azione= request.getParameter("action");
-		String redirect= "";
 		
 		if (azione.equals("effettuaPagamento")) {
 		try {
@@ -55,8 +55,8 @@ public class ServletOrdini extends HttpServlet {
 		
 		car.delete();
 		request.getSession().setAttribute("carrello", car);
-		
-		redirect= "/ProdottiCheckout.jsp";
+		RequestDispatcher dis= request.getRequestDispatcher("ProdottiCheckout.jsp");
+		dis.forward(request, response);
 		}
 		
 		if (azione.equals("ordiniEffettuati")) {
@@ -64,9 +64,10 @@ public class ServletOrdini extends HttpServlet {
 			try {
 				
 				ArrayList<OrdineBean> ord= ordini.cercaOrdine(bean.getId());
+				System.out.println ("id ordine: " + ord.get(0).getIdOrdine());
 				request.setAttribute("ordiniEffettuati", ord);
-				
-				redirect= "/OrdiniEffettuati.jsp";
+				RequestDispatcher dis= request.getRequestDispatcher("OrdiniEffettuati.jsp");
+				dis.forward(request, response);
 			
 			}
 			catch (SQLException e) {
@@ -75,8 +76,6 @@ public class ServletOrdini extends HttpServlet {
 			
 			
 		}
-		
-		response.sendRedirect(request.getContextPath() + redirect);
     	
     }
 	
