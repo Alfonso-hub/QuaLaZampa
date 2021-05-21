@@ -33,6 +33,9 @@ Gli sviluppatori del sito: Ferrara Miriam, Schettino Alfonso e Ceccarelli Sabrin
 </a> <br><br>
 <a href="ProdottiView.jsp">
 <input type="button" value="Torna alla lista prodotti">
+</a> <br><br>
+<a href="Ordini?action=ordiniEffettuati">
+<input type="button" value="Visualizza tabella ordini effettuati">
 </a>
 
 </body>

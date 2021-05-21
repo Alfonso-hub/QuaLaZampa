@@ -88,7 +88,7 @@ public class OrdiniModelDM implements OrdiniModel {
 		Connection con= null;
 		PreparedStatement prep= null;
 		ArrayList<OrdineBean> order= new ArrayList<OrdineBean>();
-		String query= "SELECT (id_ordine, prezzo_totale, stato_ordine, data_ordine) FROM effettua, ordine WHERE id_cliente_effettua= ?";
+		String query= "SELECT id_ordine, prezzo_totale, stato_ordine, data_ordine FROM effettua, ordine WHERE id_cliente_effettua= ? AND id_ordine_effettua=id_ordine";
 		
 		try {
 			con= ConnectionPool.getConnection();

@@ -3,6 +3,7 @@ package pacchetto.control;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import pacchetto.model.Carrello;
 import pacchetto.model.ClienteBean;
+import pacchetto.model.OrdineBean;
 import pacchetto.model.OrdiniModelDM;
 
 /**
@@ -26,30 +28,61 @@ public class ServletOrdini extends HttpServlet {
         super();
     }
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		if(request.getSession().getAttribute("accedi")== null) {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	if(request.getSession().getAttribute("accedi")== null) {
 			
 			response.sendRedirect("PageLogin.jsp");
 			
 		}
 		Carrello car= (Carrello) request.getSession().getAttribute("carrello");
-		/*
-		car.delete();
-		request.getSession().setAttribute("carrello", car);
-		*/
+		
 		ClienteBean bean=(ClienteBean) request.getSession().getAttribute("accedi");
 		OrdiniModelDM ordini= new OrdiniModelDM();
 		Date data= new Date(System.currentTimeMillis());
+		String azione= request.getParameter("action");
+		String redirect= "";
 		
+		if (azione.equals("effettuaPagamento")) {
 		try {
 			for(int i = 0; i<car.getDimensione(); i++) {
 		ordini.registraOrdine(bean.getId(), car.getCarrello().get(i).getId(), car.getCarrello().get(i).getTotPrezzo(), "acquistato", data, car.getCarrello().get(i).getQuantitaDesiderata(), car.getCarrello().get(i).getPrezzo());
+			}
+		}
+		catch (SQLException e){
+		System.out.println("Error Pagamento Ordine " + e.getMessage());
+		}
+		
+		car.delete();
+		request.getSession().setAttribute("carrello", car);
+		
+		redirect= "/ProdottiCheckout.jsp";
+		}
+		
+		if (azione.equals("ordiniEffettuati")) {
+			
+			try {
+				
+				ArrayList<OrdineBean> ord= ordini.cercaOrdine(bean.getId());
+				request.setAttribute("ordiniEffettuati", ord);
+				
+				redirect= "/OrdiniEffettuati.jsp";
 			
 			}
-		}catch (SQLException e){
-		System.out.println("Error Ordine " + e.getMessage());
+			catch (SQLException e) {
+				System.out.println ("Errore Visualizzazione Ordini Effettuati: " + e.getMessage());
+			}
+			
+			
 		}
+		
+		response.sendRedirect(request.getContextPath() + redirect);
+    	
+    }
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
+		
 		}
 }
