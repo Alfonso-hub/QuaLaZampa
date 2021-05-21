@@ -32,11 +32,29 @@ public class Carrello {
 		
 		for (ProdottiBean p : car) {
 			if (p.getId() == prod.getId()) {
-				car.remove(prod);
+				car.remove(p);
 				dimensione= dimensione - 1;
 			break;
 			}
 		}
+	}
+	
+	public ProdottiBean prendiProdotto(int id) {
+		ProdottiBean bean=new ProdottiBean();
+		for(int i=0;i<car.size();i++) {
+			if(car.get(i).getId()==id) {
+				bean.setId(car.get(i).getId());
+				bean.setDescrizione(car.get(i).getDescrizione());
+				bean.setDisponibilita(car.get(i).getDisponibilita());
+				bean.setIva(car.get(i).getIva());
+				bean.setNome(car.get(i).getNome());
+				bean.setPrezzo(car.get(i).getPrezzo());
+				bean.setQuantita(car.get(i).getQuantita());
+				bean.setQuantitaDesiderata(car.get(i).getQuantitaDesiderata());
+				bean.setTotPrezzo(car.get(i).getTotPrezzo());
+			}
+		}
+		return bean;
 	}
 	
 	/**

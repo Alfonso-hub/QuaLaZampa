@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import pacchetto.model.Carrello;
+import pacchetto.model.ProdottiBean;
 
 
 
@@ -33,7 +34,13 @@ public class ServletCarrello extends HttpServlet {
 		int scelta= Integer.parseInt(request.getParameter("scelta"));
 		car.getPrezzoTotale(scelta, id);
 		car.insertQuantita(id, scelta);
-		
+		String azione=request.getParameter("action");
+		/*if(azione.equals("elimina")) {
+			ProdottiBean bean= car.prendiProdotto(id);
+			car.deleteProduct(bean);
+			session.setAttribute("carrello", car);
+			System.out.println("Dimensione: " +car.getDimensione());
+		}*/
 		RequestDispatcher dis= getServletContext().getRequestDispatcher("/ProdottiCarrello.jsp");
 		dis.forward(request, response);
 	}

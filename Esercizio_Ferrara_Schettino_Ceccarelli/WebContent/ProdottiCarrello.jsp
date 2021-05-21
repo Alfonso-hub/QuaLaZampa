@@ -38,13 +38,22 @@ Nome prodotto: <%= car.getCarrello().get(i).getNome() %> <br>
 Prezzo singolo prodotto: <%= car.getCarrello().get(i).getPrezzo() %> <br>
 <form action="Controllo2" method="get">
 <input type="hidden" value="<%= car.getCarrello().get(i).getId() %>" name="nascosto">
-Quantità desiderata: <input type="number" name="scelta">
+Quantità desiderata: <input type="number" name="scelta" min="1" max="<%= car.getCarrello().get(i).getQuantita()%>" >
 <input type="submit" value="Aggiorna">
 </form>
 <br>
 
 Prezzo totale: <%= car.getCarrello().get(i).getTotPrezzo() %>
+
 <br><br>
+<form action="EliminaProdotto" method="get">
+<input type="hidden" value="<%= car.getCarrello().get(i).getId() %>" name="nascosto2">
+<input type="submit" value="Elimina Prodotto">
+
+</form>
+
+
+</a>
 
 <%
 }
