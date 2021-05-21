@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="java.util.*, pacchetto.model.*"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="java.util.*, pacchetto.model.OrdineBean"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -20,19 +20,23 @@
 
 
 <%
-ArrayList<OrdineBean> ord= (ArrayList<OrdineBean>) request.getAttribute("ordiniEffettuati");
+ArrayList<?> ord= (ArrayList<?>) request.getAttribute("ordiniEffettuati");
 
-for (int i= 0; i < ord.size(); i++){
+if (ord != null && ord.size() != 0){
+	Iterator<?> it= ord.iterator();
+	while(it.hasNext()){
+		OrdineBean or= (OrdineBean) it.next();
 %>
 
 <tr>
-<td> <%= ord.get(i).getIdOrdine() %> </td>
-<td> <%= ord.get(i).getPrezzoTot() %> </td>
-<td> <%= ord.get(i).getStatoOrdine() %> </td>
-<td> <%= ord.get(i).getDataOrdine() %>
+<td> <%= or.getIdOrdine() %> </td>
+<td> <%= or.getPrezzoTot() %> </td>
+<td> <%= or.getStatoOrdine() %> </td>
+<td> <%= or.getDataOrdine() %> </td>
 </tr>
 
 <%
+}
 }
 %>
 
