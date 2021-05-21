@@ -1,11 +1,7 @@
-@charset "ISO-8859-1";
+@charset "ISO-8859-1"; 
 
-.body{
-   text-align:center;
-} 
 
 html, body {
-width: 100%;
 	text-align:center;
 }
 

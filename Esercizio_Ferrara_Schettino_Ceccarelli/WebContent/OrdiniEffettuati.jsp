@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="icon" type="image/x-icon" href="./image/icona_checkout.png">
+<link rel="stylesheet" type="text/css" href="./css/Carrello.css">
 <title> Ordini effettuati </title>
 </head>
 <body>

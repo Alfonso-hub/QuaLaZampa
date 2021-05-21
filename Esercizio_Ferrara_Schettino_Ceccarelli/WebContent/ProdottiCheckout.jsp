@@ -16,6 +16,8 @@
 <h3>L'ordine da te effettuato è andato a buon fine <br>Grazie</h3>
 <br>
 <blockquote>
+<!-- metti il nome del cliente che acquista  
+e contrallare il checkout quando non si e registrati -->
 Mario Rossi,<br>
 via Garibaldi, 3<br>
 333 123456 <br>

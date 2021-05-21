@@ -5,11 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
+<link rel="stylesheet" type="text/css" href="./css/Login.css">
 <title>Registrazione</title>
 </head>
 <body>
 <h1>Registrazione</h1>
 <form action="Registrazione" method="post">
+<div class="container">
 <p>Compila questo modulo per creare un account.</p>
 
 <label><b>Nome:</b></label>    
@@ -35,10 +37,13 @@
 
 <label><b>Codice Fiscale:</b></label>
 <input type="text" name="codice" placeholder="Inserisci codice fiscale" required><br><br>
+</div>
 
-<input type="submit" value="Registrati"><br>
+<input type="submit" class="login"  value="Registrati"><br>
 </form>
 <br><br>
+<div class="altro">
 Hai gia un account? <a href="PageLogin.jsp"><input type="button" value="clicca qui"></a>
+</div>
 </body>
 </html>

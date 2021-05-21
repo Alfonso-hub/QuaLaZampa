@@ -44,7 +44,7 @@ if (prod != null && prod.size() != 0) {
 <td> <%= ben.getDescrizione() %> </td>
 <td>
 <a href="Controllo?action=dettagli&id=<%= ben.getId() %>">
-<input type="button" value="Dettagli prodotto">
+<input type="button" value="Dettagli prodotto"><br>
 </a> <br>
 <a href="Controllo?action=aggiungi&id=<%= ben.getId() %>">
 <input type="button" value="Aggiungi prodotto al carrello">
@@ -63,6 +63,7 @@ if (prod != null && prod.size() != 0) {
 <a href="ProdottiCarrello.jsp">
 <input type="button" value="Vai al carrello">
 </a>
+<br><br>
 <form action="Logout" method="post" >
 <input type="submit" value="Logout">
 
