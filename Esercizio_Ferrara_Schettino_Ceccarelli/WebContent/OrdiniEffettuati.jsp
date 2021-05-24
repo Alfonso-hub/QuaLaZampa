@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="java.util.*, pacchetto.model.OrdineBean"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="java.util.*, pacchetto.model.OrdineBean, pacchetto.model.OrdineBean"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -9,6 +9,7 @@
 <title> Ordini effettuati </title>
 </head>
 <body>
+
 
 <h1 align="center"> Qui viene visualizzata la lista degli </h1>
 

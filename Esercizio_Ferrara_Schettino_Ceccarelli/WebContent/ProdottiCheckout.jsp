@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="pacchetto.model.Carrello"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="pacchetto.model.*"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -16,12 +16,15 @@
 <h3>L'ordine da te effettuato è andato a buon fine <br>Grazie</h3>
 <br>
 <blockquote>
-<!-- metti il nome del cliente che acquista  
-e contrallare il checkout quando non si e registrati -->
-Mario Rossi,<br>
-via Garibaldi, 3<br>
-333 123456 <br>
-84084 Fisciano (SA).<br>
+<!-- metti il nome del cliente che acquista  -->
+<% DatiAnagraficiBean dati = (DatiAnagraficiBean) request.getAttribute("telefono"); 
+IndirizzoSpedizioneBean  utentibean = (IndirizzoSpedizioneBean) request.getAttribute("indirizzo"); %>
+
+<%= dati.getNome() %><%= dati.getCognome()%>,<br>
+<%= utentibean.getVia() %>, <br>
+<%= dati.getTelefono() %> <br>
+<%= utentibean.getCap() %>
+<%= utentibean.getCittà() %> (<%= utentibean.getProvincia() %>) <br>
 </blockquote>
 <br>
 <p>

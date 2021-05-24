@@ -42,16 +42,16 @@ insert into dati_anagrafici values ("Teresa", "Verdi", "0818745983", "TV45GT74T7
 
 create table indirizzo_spedizione (
 via varchar(50) not null,
-id_spadizione int primary key auto_increment,
+id_spedizione int primary key auto_increment,
 citta varchar(25) not null,
 provincia varchar(25) not null,
-cap int not null,
+cap varchar(25) not null,
  id_cliente_indirizzo int,
  foreign key (id_cliente_indirizzo) references cliente (id_cliente) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) values ("via Garibaldi n.69", "Pompei", "Napoli", 80045, 2);
-insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) values ("via Giuseppe Verdi n.15", "Fisciano", "Salerno", 8084, 3);
+insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) values ("via Garibaldi n.69", "Pompei", "Napoli", "80045", 2);
+insert into indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) values ("via Giuseppe Verdi n.15", "Fisciano", "Salerno", "8084", 3);
 
 create table acquista (
 id_cliente_acquista int,

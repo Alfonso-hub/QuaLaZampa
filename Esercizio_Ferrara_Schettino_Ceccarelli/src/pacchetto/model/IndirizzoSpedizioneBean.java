@@ -5,7 +5,7 @@ public class IndirizzoSpedizioneBean {
 	String via;
 	String città;
 	String provincia;
-	int cap;
+	String cap;
 	int idCliente;
 	int idSpedizione;
 	
@@ -13,7 +13,7 @@ public class IndirizzoSpedizioneBean {
 		via="";
 		città="";
 		provincia="";
-		cap=0;
+		cap="";
 		idCliente=-1;
 		idSpedizione=-1;
 	}
@@ -42,11 +42,11 @@ public class IndirizzoSpedizioneBean {
 		this.provincia = provincia;
 	}
 
-	public int getCap() {
+	public String getCap() {
 		return cap;
 	}
 
-	public void setCap(int cap) {
+	public void setCap(String cap) {
 		this.cap = cap;
 	}
 

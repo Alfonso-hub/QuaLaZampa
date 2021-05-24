@@ -81,4 +81,98 @@ private static String TABELLA_NAME = "cliente";
 		}
 			}	
 				}
+	
+	public void registaIndirizzo(String via, String citta, String provincia, String cap, int idcliente) throws SQLException{
+		Connection con =null;
+		PreparedStatement prep= null;
+		String query = "INSERT INTO indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) VALUE (?, ?, ?, ?, ?);" ;
+		try {
+			con = ConnectionPool.getConnection();
+			prep = con.prepareStatement(query);
+			
+				prep.setString(1, via);
+				prep.setString(2, citta);
+				prep.setString(3, provincia);
+				prep.setString(4, cap);
+				prep.setInt(5,  idcliente);
+				
+				prep.executeUpdate();
+				
+				con.commit();
+				
+		}finally {
+			try {
+				if (prep != null)
+					prep.close();
+			}
+			finally {
+				ConnectionPool.relaseConnection(con);
+			}
+		}
+	}
+
+	public IndirizzoSpedizioneBean cercaIndirizzo(int idcliente) throws SQLException{
+		Connection con = null;
+		PreparedStatement prep = null;
+		String query = "SELECT * FROM indirizzo_spedizione WHERE id_cliente_indirizzo = ?  " ;
+		IndirizzoSpedizioneBean indirizzo = new IndirizzoSpedizioneBean();
+		try {
+			con = ConnectionPool.getConnection(); 
+			prep = con.prepareStatement(query);
+			prep.setInt(1, idcliente);
+			ResultSet res  = prep.executeQuery();
+			
+			while(res.next()) {
+			indirizzo.setIdCliente(res.getInt("id_cliente_indirizzo"));
+			indirizzo.setVia(res.getString("via"));
+			indirizzo.setCittà(res.getString("citta"));
+			indirizzo.setProvincia(res.getString("provincia"));
+			indirizzo.setIdSpedizione(res.getInt("id_spedizione"));
+			}
+			
+		}finally {
+				try {
+					if (prep != null)
+						prep.close();
+				}
+				finally {
+					ConnectionPool.relaseConnection(con);
+				}	
+	}
+		return indirizzo;
+	}
+	
+	
+	public DatiAnagraficiBean cercadati(int idcli) throws SQLException{
+		Connection con = null;
+		PreparedStatement prep = null;
+		String query = "SELECT * FROM dati_anagrafici WHERE id_cliente_dati = ?  " ;
+		DatiAnagraficiBean  dati =  new DatiAnagraficiBean() ;
+	
+		try {
+			con = ConnectionPool.getConnection(); 
+			prep = con.prepareStatement(query);
+			prep.setInt(1, idcli);
+			
+			ResultSet res = prep.executeQuery();
+			
+			while(res.next()) {
+				dati.setNome(res.getString("nome"));
+				dati.setCognome(res.getString("cognome"));
+				dati.setTelefono(res.getString("telefono")) ;
+			}
+			
+		}finally {
+			try {
+				if (prep != null)
+					prep.close();
+			}
+			finally {
+				ConnectionPool.relaseConnection(con);
+			}	
+		}
+
+		return dati;
+
+	}
 					}

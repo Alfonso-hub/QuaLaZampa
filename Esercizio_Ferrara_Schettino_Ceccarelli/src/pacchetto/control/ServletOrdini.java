@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import pacchetto.model.Carrello;
 import pacchetto.model.ClienteBean;
+import pacchetto.model.DatiAnagraficiBean;
+import pacchetto.model.IndirizzoSpedizioneBean;
 import pacchetto.model.OrdineBean;
 import pacchetto.model.OrdiniModelDM;
+import pacchetto.model.UtentiModelDM;
 
 /**
  * Servlet implementation class ServletOrdini
@@ -32,19 +35,26 @@ public class ServletOrdini extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	if(request.getSession().getAttribute("accedi")== null) {
-			
-			response.sendRedirect("PageLogin.jsp");
-			
+    		RequestDispatcher dis= request.getRequestDispatcher("PageLogin.jsp");
+			dis.forward(request, response);
 		}
 		Carrello car= (Carrello) request.getSession().getAttribute("carrello");
 		
 		ClienteBean bean=(ClienteBean) request.getSession().getAttribute("accedi");
+		
+		UtentiModelDM utenti = new UtentiModelDM();
+		
 		OrdiniModelDM ordini= new OrdiniModelDM();
 		Date data= new Date(System.currentTimeMillis());
 		String azione= request.getParameter("action");
 		
 		if (azione.equals("effettuaPagamento")) {
 		try {
+			IndirizzoSpedizioneBean  utentibean = utenti.cercaIndirizzo(bean.getId());
+			DatiAnagraficiBean tel = utenti.cercadati(bean.getId());
+		
+			request.setAttribute("indirizzo", utentibean);
+			request.setAttribute("telefono", tel);
 			for(int i = 0; i<car.getDimensione(); i++) {
 		ordini.registraOrdine(bean.getId(), car.getCarrello().get(i).getId(), car.getCarrello().get(i).getTotPrezzo(), "acquistato", data, car.getCarrello().get(i).getQuantitaDesiderata(), car.getCarrello().get(i).getPrezzo());
 			}
