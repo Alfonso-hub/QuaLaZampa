@@ -126,6 +126,7 @@ private static String TABELLA_NAME = "cliente";
 			indirizzo.setIdCliente(res.getInt("id_cliente_indirizzo"));
 			indirizzo.setVia(res.getString("via"));
 			indirizzo.setCittà(res.getString("citta"));
+			indirizzo.setCap(res.getString("cap"));
 			indirizzo.setProvincia(res.getString("provincia"));
 			indirizzo.setIdSpedizione(res.getInt("id_spedizione"));
 			}
