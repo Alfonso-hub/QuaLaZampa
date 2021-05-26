@@ -26,8 +26,7 @@ import pacchetto.model.UtentiModelDM;
 @WebServlet("/Ordini")
 public class ServletOrdini extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
+   
     public ServletOrdini() {
         super();
     }
