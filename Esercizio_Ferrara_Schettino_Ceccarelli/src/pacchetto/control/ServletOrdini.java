@@ -55,6 +55,7 @@ public class ServletOrdini extends HttpServlet {
 		
 			request.setAttribute("indirizzo", utentibean);
 			request.setAttribute("telefono", tel);
+			
 			for(int i = 0; i<car.getDimensione(); i++) {
 		ordini.registraOrdine(bean.getId(), car.getCarrello().get(i).getId(), car.getCarrello().get(i).getTotPrezzo(), "acquistato", data, car.getCarrello().get(i).getQuantitaDesiderata(), car.getCarrello().get(i).getPrezzo());
 			}
