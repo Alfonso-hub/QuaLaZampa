@@ -10,4 +10,6 @@ public interface OrdiniModel {
 	
 	public ArrayList<OrdineBean> cercaOrdine (int id_cliente) throws SQLException;
 
+	public ProdottiBean ricercaInformazioniProdotto(int id_ordine) throws SQLException;
+	
 }

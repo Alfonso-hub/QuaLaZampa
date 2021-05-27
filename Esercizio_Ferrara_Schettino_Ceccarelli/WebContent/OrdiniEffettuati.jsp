@@ -19,6 +19,7 @@
 <th> prezzo_totale </th>
 <th> stato ordine </th>
 <th> data ordine </th>
+<th> Azione </th>
 </tr>
 
 
@@ -36,6 +37,7 @@ if (ord != null && ord.size() != 0){
 <td> <%= or.getPrezzoTot() %> </td>
 <td> <%= or.getStatoOrdine() %> </td>
 <td> <%= or.getDataOrdine() %> </td>
+<td> <a href="InformazioniProdotto?id=<%=or.getIdOrdine() %>" ><input type="button" value="dettaglio">  </a>
 </tr>
 
 <%
