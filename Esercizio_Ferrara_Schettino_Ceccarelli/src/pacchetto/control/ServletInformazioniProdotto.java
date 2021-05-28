@@ -32,6 +32,9 @@ public class ServletInformazioniProdotto extends HttpServlet {
 			ProdottiBean bean= ordini.ricercaInformazioniProdotto(id);
 			request.setAttribute("informazioni prodotto", bean);
 			
+			int quant= ordini.ricercaQuantitaProdotto(id);
+			request.setAttribute("quantit", quant);
+			
 			
 		} catch (SQLException e) {
 			System.out.println("Errore nella servlet InformazioniProdotto " + e.getMessage());

@@ -123,7 +123,7 @@ public class OrdiniModelDM implements OrdiniModel {
 	public ProdottiBean ricercaInformazioniProdotto(int id_ordine) throws SQLException {
 		Connection conn=null;
 		PreparedStatement prep=null;
-		String query= "SELECT id_prodotto, nome, descrizione FROM prodotti, inserito where id_ordine_inserito= ? AND id_prodotto=id_prodotto_inserito";
+		String query= "SELECT id_prodotto, nome, iva_prodotti, descrizione, prezzo_base FROM prodotti, inserito where id_ordine_inserito= ? AND id_prodotto=id_prodotto_inserito";
 		ProdottiBean bean= new ProdottiBean();		
 		ResultSet result= null;
 		try {
@@ -135,7 +135,9 @@ public class OrdiniModelDM implements OrdiniModel {
 		while(result.next()) {
 			bean.setId(result.getInt("id_prodotto"));
 			bean.setNome(result.getString("nome"));
+			bean.setIva(result.getFloat("iva_prodotti"));
 			bean.setDescrizione(result.getString("descrizione"));
+			bean.setPrezzo(result.getFloat("prezzo_base"));
 		}
 			
 		}finally {
@@ -148,6 +150,31 @@ public class OrdiniModelDM implements OrdiniModel {
 			}
 		}
 		return bean;
+	}
+	
+	public int ricercaQuantitaProdotto (int code) throws SQLException {
+		
+		int quan= 0;
+		Connection con= null;
+		PreparedStatement prep= null;
+		String query= "select quantita_inserito from inserito where id_ordine_inserito= ?";
+		ResultSet res= null;
+		
+		try {
+			con= ConnectionPool.getConnection();
+			prep= con.prepareStatement(query);
+			prep.setInt(1, code);
+			res= prep.executeQuery();
+			
+			while (res.next()) {
+				quan= res.getInt("quantita_inserito");
+			}
+		}
+		finally {
+			
+		}
+		return quan;
+		
 	}
 
 }

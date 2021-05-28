@@ -74,7 +74,6 @@ public class ServletOrdini extends HttpServlet {
 			try {
 				
 				ArrayList<OrdineBean> ord= ordini.cercaOrdine(bean.getId());
-				System.out.println ("id ordine: " + ord.get(0).getIdOrdine());
 				request.setAttribute("ordiniEffettuati", ord);
 				RequestDispatcher dis= request.getRequestDispatcher("OrdiniEffettuati.jsp");
 				dis.forward(request, response);

@@ -8,8 +8,23 @@
 </head>
 <body>
 
-<% ProdottiBean bean= (ProdottiBean) request.getAttribute("informazioni prodotto"); %>
-<h1 allign="center"> Qui Vengono visualizzate le informazioni di: <%= bean.getNome() %> </h1>
+<% ProdottiBean bean= (ProdottiBean) request.getAttribute("informazioni prodotto");
+int quantit= (int) request.getAttribute("quantit");
+%>
+<h1 align="center"> Qui Vengono visualizzate le informazioni di: <%= bean.getNome() %> </h1>
+
+<p align="center">
+L identificativo del prodotto è <%= bean.getId() %> e la descrizione ad esso associata è la seguente: <br>
+<%= bean.getDescrizione() %> <br>
+L'IVA del prodotto è <%= bean.getIva() %>, il prezzo del singolo prodotto è <%= bean.getPrezzo() %> <br>
+e il cliente ha acquistato <%= quantit %> quantità di tale prodotto.
+</p> <br><br>
+
+<center>
+<a href="ProdottiView.jsp">
+<input type="button" value="visualizza i prodotti">
+</a>
+</center>
 
 </body>
 </html>

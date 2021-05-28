@@ -12,4 +12,6 @@ public interface OrdiniModel {
 
 	public ProdottiBean ricercaInformazioniProdotto(int id_ordine) throws SQLException;
 	
+	public int ricercaQuantitaProdotto (int code) throws SQLException;
+	
 }
