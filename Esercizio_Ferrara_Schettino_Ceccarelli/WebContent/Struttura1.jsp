@@ -64,7 +64,7 @@
  <h3>Sviluppatori</h3>
   <img src="./image/cat.png" class="image">
  	<p>Nome: Sabrina Ceccarelli <br>
-     Email: Sabri@studenti.unisa.it</p><br>
+     Email: s.ceccarelli1@studenti.unisa.it</p><br>
   
   
   <img src="./image/coniglio.png" class="image">
