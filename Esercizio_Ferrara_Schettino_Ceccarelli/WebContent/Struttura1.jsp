@@ -4,36 +4,59 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
 <link rel="stylesheet" type="text/css" href="./css/Login.css">
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
-
-<title>Login</title>
+<title>QuaLaZampa</title>
 </head>
-
 <body>
-<img src="./image/logoPNG.png" class="img-logo" width="200" height="200" >
-<div class="container">
-<h1>Accedi</h1>
-<form action="Login"  method="post" >
-<p>Inserisci i tuoi dati per Accedere</p><br>
+<header>
+<div class="header">
+<img src="./image/logoQLZ.png" class="logo">
+</div>
+</header>
 
-<label><b>Email:</b></label><br>
-<input type="text" name="email" placeholder="Inserisci email" required>
+<ul>
+<li class="dropdown"><a class="dropbtn" href="">Gatto</a>
+<div class="dropdown-content">
+      <a href="">Alimenti</a>
+      <a href="">Igiene e Salute</a>
+      <a href="">Accessori</a>
+    </div></li>
+    
 
-<label><b>Password:</b></label><br> 
-<input type="password" name="password" placeholder="Inserisci password" required>
+<li class="dropdown" ><a class="dropbtn" href="link.html">Cane</a>
+<div class="dropdown-content">
+      <a class="dropdown"  href="link.html">Alimenti</a>
+      <a href="#">Igiene e Salute</a>
+      <a href="#">Accessori</a>
+    </div></li>
+    
+    
+<li class="dropdown" ><a class="dropbtn" href="">Animali piccola taglia</a>
+<div class="dropdown-content">
+      <a href="#">Alimenti</a>
+      <a href="#">Igiene e Salute</a>
+      <a href="#">Accessori</a>
+    </div></li>
+    
+<li class="dropdown" ><a class="dropbtn" href="">Uccelli</a>
+<div class="dropdown-content">
+      <a href="#">Alimenti</a>
+      <a href="#">Igiene e Salute</a>
+      <a href="#">Accessori</a>
+    </div></li>
+</ul>
 
-<input type="submit" class="login" value="Accedi"><br>
-</form>
 
+
+
+<h1>ciao </h1><br> 
 <br>
-<div class="clicca">
-Se non sei ancora Registrato? <a href="LoginRegistrazione.jsp"><input type="button" value="clicca qui"></a>
-<br><br>
-Per procedere come ospite invece <a href="ProdottiView.jsp"><input type="button" value="clicca qui"></a>
-</div>
-</div>
+
+
+
+
+
 
 <footer>
 <div class="col-container">
