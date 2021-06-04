@@ -15,7 +15,7 @@ public class ProdottiModelDM implements ProdottiModel {
 		
 		Connection con= null;
 		PreparedStatement prep= null;
-		String query= "INSERT INTO " + ProdottiModelDM.NAME_TABLE + " (nome, disponibilita, quantita, descrizione, prezzo_base) VALUES (?, ?, ?, ?, ?)";
+		String query= "INSERT INTO " + ProdottiModelDM.NAME_TABLE + " (nome, disponibilita, quantita, descrizione, prezzo_base, pat) VALUES (?, ?, ?, ?, ?, ?)";
 		
 		try {
 			con= ConnectionPool.getConnection();
@@ -25,6 +25,7 @@ public class ProdottiModelDM implements ProdottiModel {
 			prep.setInt(3, bean.getQuantita());
 			prep.setString(4, bean.getDescrizione());
 			prep.setFloat(5, bean.getPrezzo());
+			prep.setString(6, bean.getPat());
 			
 			prep.executeUpdate();
 			
@@ -66,6 +67,7 @@ public class ProdottiModelDM implements ProdottiModel {
 				bean.setIva(res.getFloat("iva_prodotti"));
 				bean.setDescrizione(res.getString("descrizione"));
 				bean.setPrezzo(res.getFloat("prezzo_base"));
+				bean.setPat(res.getString("pat"));
 			}
 		}
 		finally {
@@ -105,6 +107,7 @@ public class ProdottiModelDM implements ProdottiModel {
 				pr.setIva(res.getFloat("iva_prodotti"));
 				pr.setDescrizione(res.getString("descrizione"));
 				pr.setPrezzo(res.getFloat("prezzo_base"));
+				pr.setPat(res.getString("pat"));
 				
 				prod.add(pr);
 			}

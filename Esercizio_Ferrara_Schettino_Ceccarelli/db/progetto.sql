@@ -7,13 +7,14 @@ disponibilita enum ("SI", "NO") not null,
 quantita int default 0,
 iva_prodotti float default 0.22,
 descrizione varchar (700) not null,
-prezzo_base float default 0 
+prezzo_base float default 0,
+pat varchar(500) not null
 );
 
-insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base) values ("Purina crocchette cane", "SI", 500, "crocchette a manzo per cane da 2kg", 14.50);
-insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base) values ("Purina crocchette gatto", "SI", 500, "crocchette al pollo per gatti da 2kg", 14.50);
-insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base) values ("Cuccia per gatto", "SI", 500, "Cuccia per gatto Small 47x13cm", 10.20);
-insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base) values ("Salviette detergenti", "SI", 500, "Salviette detergenti zampe cane", 3.80);
+insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Purina crocchette cane", "SI", 500, "crocchette a manzo per cane da 2kg", 14.50, "C:\Users\utente\Desktop\TSW progetto\QuaLaZampa\Esercizio_Ferrara_Schettino_Ceccarelli\WebContent\image\Purina_crocchette_cane.png");
+insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Purina crocchette gatto", "SI", 500, "crocchette al pollo per gatti da 2kg", 14.50, "C:\Users\utente\Desktop\TSW progetto\QuaLaZampa\Esercizio_Ferrara_Schettino_Ceccarelli\WebContent\image\Purina_crocchette_gatto.png");
+insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Cuccia per gatto", "SI", 500, "Cuccia per gatto Small 47x13cm", 10.20, "C:\Users\utente\Desktop\TSW progetto\QuaLaZampa\Esercizio_Ferrara_Schettino_Ceccarelli\WebContent\image\Cuccia_per_gatto.jpg");
+insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Salviette detergenti", "SI", 500, "Salviette detergenti zampe cane", 3.80, "C:\Users\utente\Desktop\TSW progetto\QuaLaZampa\Esercizio_Ferrara_Schettino_Ceccarelli\WebContent\image\Salviette_detergenti_per_animali.jpg");
 
 create table cliente (
 username varchar(25) not null,

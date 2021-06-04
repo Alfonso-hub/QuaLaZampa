@@ -11,6 +11,7 @@ public class ProdottiBean {
 	float prezzo;
 	float prezzotot;
 	int quantdesiderata;
+	String pat;
 	
 	public ProdottiBean () {
 		id= -1;
@@ -22,6 +23,7 @@ public class ProdottiBean {
 		prezzo= 0;
 		prezzotot = 0;
 		quantdesiderata=0;
+		pat= "";
 	}
 
 	public int getId() {
@@ -94,6 +96,14 @@ public class ProdottiBean {
 	
 	public void setQuantitaDesiderata(int q) {
 	this.quantdesiderata= q ;
+	}
+	
+	public String getPat () {
+		return pat;
+	}
+	
+	public void setPat (String pat) {
+		this.pat= pat;
 	}
 	
 	public String toString () {
