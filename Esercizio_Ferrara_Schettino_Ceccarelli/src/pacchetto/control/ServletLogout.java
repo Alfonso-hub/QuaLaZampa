@@ -16,12 +16,14 @@ public class ServletLogout extends HttpServlet {
     public ServletLogout() {
         super();
     }
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().removeAttribute("accedi");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	request.getSession().removeAttribute("accedi");
 		request.getSession().invalidate();
 		response.sendRedirect("PageLogin.jsp");
+    }
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }

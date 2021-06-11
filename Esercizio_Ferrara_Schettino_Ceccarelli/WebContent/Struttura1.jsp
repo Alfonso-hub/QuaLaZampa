@@ -4,16 +4,44 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="./css/Login.css">
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
 <title>QuaLaZampa</title>
 </head>
+
 <body>
 <header>
 <div class="header">
-<img src="./image/logoQLZ.png" class="logo">
+<img src="./image/logo.png" class="logo" width="110" height="110">
+<a href="ProdottiCarrello.jsp"><img src="./image/icona_carrello.png" class="icone"></a>
+<a href="PageLogin.jsp"><img src="./image/account.png" class="icone"></a>
+
 </div>
 </header>
+
+<div class="content">
+  <img class="mySlides" src="./image/0scorrimento.jpg">
+  <img class="mySlides" src="./image/1scorrimento.jpeg">
+  <img class="mySlides" src="./image/2scorrimento.jpeg">
+  <img class="mySlides" src="./image/3scorrimento.jpeg">
+  <img class="mySlides" src="./image/4scorrimento.jpeg">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000);
+}
+</script>
 
 <ul>
 <li class="dropdown"><a class="dropbtn" href="">Gatto</a>
@@ -23,8 +51,7 @@
       <a href="">Accessori</a>
     </div></li>
     
-
-<li class="dropdown" ><a class="dropbtn" href="link.html">Cane</a>
+<li class="dropdown" ><a class="dropbtn" href="">Cane</a>
 <div class="dropdown-content">
       <a class="dropdown"  href="link.html">Alimenti</a>
       <a href="#">Igiene e Salute</a>
@@ -50,9 +77,8 @@
 
 
 
-<h1>ciao </h1><br> 
+<h1>Catalogo </h1><br> 
 <br>
-
 
 
 
@@ -66,7 +92,6 @@
  	<p>Nome: Sabrina Ceccarelli <br>
      Email: s.ceccarelli1@studenti.unisa.it</p><br>
   
-  
   <img src="./image/coniglio.png" class="image">
     <p>Nome: Miriam Ferrara <br>
   	 Email: M.Ferrara115@studenti.unisa.it</p><br>
@@ -75,6 +100,7 @@
  	<p>Nome: Alfonso Schettino <br>
  	 Email: a.schettino23@studenti.unisa.it </p> 
  </div>
+
  <div class="col">
   <h3>Dove ci trovi</h3>
 <p>
@@ -90,5 +116,6 @@
   </div>
   </div>
 </footer>
+
 </body>
 </html>

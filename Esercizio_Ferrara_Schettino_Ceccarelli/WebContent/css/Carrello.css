@@ -1,23 +1,21 @@
 @charset "ISO-8859-1"; 
 
-
-html, body {
-	text-align:center;
-}
-
 table {
-  margin-left: auto;
-  margin-right: auto;
-	width: auto;
+	margin-left:auto;
+	margin-right:auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid white;
 	
 }
 
-table, th, td {
-	justify-content:center;
-	border: 1px solid black;
-	border-collapse: collapse;
+th, td {
+  text-align: center;
+  padding: 16px;
 }
 
-th, td {
-	padding: 15px;
+th:first-child, td:first-child {
+  text-align: left;
 }
+

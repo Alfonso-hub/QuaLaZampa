@@ -15,7 +15,7 @@
 <%
 Carrello car= (Carrello) session.getAttribute("carrello");
 
-if (car.getDimensione()==0) {
+if ((car==null) || (car.getDimensione()==0)) {
 %>
 
 <p>

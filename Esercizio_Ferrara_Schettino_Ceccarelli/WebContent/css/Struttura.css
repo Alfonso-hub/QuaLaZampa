@@ -3,20 +3,33 @@
 .header {
   overflow: hidden;
   background-color: #f07818;
-  padding: 10px;
+  padding: 20px;
 }
 
-.logo {
-  max-width: 120px;
-  width:auto;
-} 
+.icone{
+	float:right;
+	width:50px;
+	height:50px;
+}
 
+.content{
+	margin-left:auto;
+	margin-right:auto;
+	}
+
+.mySlides {
+	display:none;
+	width:100%;
+	max-width:auto; 
+	height:auto;
+	}
+	
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #ffd963;
 }
 
 li {
@@ -25,14 +38,14 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: #78c0A8;
 }
 
 li.dropdown {
@@ -62,7 +75,6 @@ li.dropdown {
 }
 
 
-
 footer {
   width:auto;
   background-color: #785d4e;
@@ -86,5 +98,10 @@ footer {
 .image{
 	width:30px;
 	height:30px;
-	
 }
+
+p{
+  width: auto;
+  display:inline-block;
+}
+

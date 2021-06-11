@@ -20,9 +20,11 @@ if (prod == null){
 	return;
 }
 %>
-
+<%@ include file = "../fragments/header.jsp" %>
+<%@ include file="../fragments/menu.jsp" %>
 <h1> Catalogo Prodotti </h1>
 
+<div style="overflow-x:auto;">
 <table>
 <tr>
 <th> Codice</th>
@@ -42,7 +44,7 @@ if (prod != null && prod.size() != 0) {
 
 <tr>
 <td> <%= ben.getId() %> </td>
-<td> <img src="./image/<%= nome %>" height="200" width="200">
+<td> <img src="./image/<%= nome %>" height="180" width="180">
 <td> <%= ben.getNome() %> </td>
 <td> <%= ben.getDescrizione() %> </td>
 <td>
@@ -50,7 +52,7 @@ if (prod != null && prod.size() != 0) {
 <input type="button" value="Dettagli prodotto"><br>
 </a> <br>
 <a href="Controllo?action=aggiungi&id=<%= ben.getId() %>">
-<input type="button" value="Aggiungi prodotto al carrello">
+<input type="button" value="Aggiungi al carrello">
 </a> <br><br>
 </td>
 </tr>
@@ -59,18 +61,9 @@ if (prod != null && prod.size() != 0) {
 	}
 }
 %>
-</table>
+</table></div>
 
 <br><br>
-<div class="body">
-<a href="ProdottiCarrello.jsp">
-<input type="button" value="Vai al carrello">
-</a>
-<br><br>
-<form action="Logout" method="post" >
-<input type="submit" value="Logout">
-
-</form>
-</div>
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>
