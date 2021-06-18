@@ -6,13 +6,15 @@
 <meta charset="ISO-8859-1">
 <link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
 <link rel="stylesheet" type="text/css" href="./css/Login.css">
+<link rel="stylesheet" type="text/css" href="./css/Struttura.css">
 <title>Registrazione</title>
 </head>
 <body>
-<h1>Registrazione</h1>
+<img src="./image/logo.png" class="img-logo" width="200" height="200" >
+<h1 align="center">Registrazione</h1>
 <form action="Registrazione" method="post">
 <div class="container">
-<p>Compila questo modulo per creare un account.</p>
+<p>Compila questo modulo per creare un account.</p><br>
 
 <label><b>Nome:</b></label>    
 <input type="text" name="nome" placeholder="Inserisci nome" required>
@@ -37,13 +39,19 @@
 
 <label><b>Codice Fiscale:</b></label>
 <input type="text" name="codice" placeholder="Inserisci codice fiscale" required><br><br>
-</div>
 
-<input type="submit" class="login"  value="Registrati"><br>
+<input type="submit" class="login" value="Registrati"><br>
+</div>
 </form>
-<br><br>
-<div class="altro">
+<br>
+<div class="clicca">
 Hai gia un account? <a href="PageLogin.jsp"><input type="button" value="clicca qui"></a>
 </div>
+
+<footer>
+<div align="center">
+  <p> &#169; QuaLaZampa 2021</p>
+  </div>
+  </footer>
 </body>
 </html>

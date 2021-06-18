@@ -24,9 +24,9 @@ password varchar (50) not null,
 amministratore enum ("SI", "NO") not null
 );
 
-insert into cliente (username, e_mail, password, amministratore) values ("Giggino", "gigi@gmail.com", "GigginoIlBiondo", "SI");
-insert into cliente (username, e_mail, password, amministratore) values ("Claudia", "claudia@gmail.com", "Admin3", "NO");
-insert into cliente (username, e_mail, password, amministratore) values ("Teresa", "teresa@gmail.com", "TeresaAdmin", "NO");
+insert into cliente (username, e_mail, password, amministratore) values ("Alfonso", "a@gmail.com", "admin1", "SI");
+insert into cliente (username, e_mail, password, amministratore) values ("Sabrina", "s@gmail.com", "admin2", "NO");
+insert into cliente (username, e_mail, password, amministratore) values ("Miriam", "m@gmail.com", "admin3", "NO");
 
 create table dati_anagrafici (
 nome varchar(25) not null,

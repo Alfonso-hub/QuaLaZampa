@@ -4,8 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="./image/icona_catalogo.png">
 <link rel="stylesheet" type="text/css" href="./css/Carrello.css">
+<link rel="stylesheet" type="text/css" href="./css/Struttura.css">
 
 
 <title>Catalogo</title>
@@ -21,10 +23,24 @@ if (prod == null){
 }
 %>
 <%@ include file = "../fragments/header.jsp" %>
+<div class="container">
+  <img class="mySlides"src="./image/Benvenuto.png">
+  <img class="mySlides" src="./image/0scorrimento.jpg">
+  <img class="mySlides" src="./image/1scorrimento.jpeg">
+  <img class="mySlides" src="./image/2scorrimento.jpeg">
+  <img class="mySlides" src="./image/3scorrimento.jpeg">
+  <img class="mySlides" src="./image/4scorrimento.jpeg">
+<script type="text/javascript" src="./resources/imageScorrimento.js"></script>
+</div>
+
 <%@ include file="../fragments/menu.jsp" %>
 <h1> Catalogo Prodotti </h1>
 
-<div style="overflow-x:auto;">
+
+
+
+
+<div class="card" style="overflow-x:auto;">
 <table>
 <tr>
 <th> Codice</th>
@@ -44,7 +60,8 @@ if (prod != null && prod.size() != 0) {
 
 <tr>
 <td> <%= ben.getId() %> </td>
-<td> <img src="./image/<%= nome %>" height="180" width="180">
+<td> <script type="text/javascript" src="./resources/imageZoom.js"></script>
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="./image/<%= nome %>" height="180" width="180">
 <td> <%= ben.getNome() %> </td>
 <td> <%= ben.getDescrizione() %> </td>
 <td>
@@ -61,6 +78,7 @@ if (prod != null && prod.size() != 0) {
 	}
 }
 %>
+
 </table></div>
 
 <br><br>
