@@ -84,3 +84,36 @@ id_ordine_inserito int,
 foreign key (id_prodotto_inserito) references prodotti (id_prodotto) ON DELETE SET NULL ON UPDATE CASCADE,
 foreign key (id_ordine_inserito) references ordine (id_ordine) ON DELETE SET NULL ON UPDATE CASCADE
 );
+
+create table catalogo(
+
+id_catalogo int auto_increment primary key,
+id_prodotto_catalogo int,
+informazioni varchar (700),
+categoria varchar(100),
+quantita_prodotto int,
+foreign key (id_prodotto_catalogo) references prodotti(id_prodotto) on delete set null on update cascade
+
+);
+
+insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (1,"crocchette a manzo per cane da 2kg","cane",500);
+insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (2,"crocchette al pollo per gatti da 2kg","gatto",500);
+insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (3, "Cuccia per gatto Small 47x13cm","gatto",500);
+insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (4,"Salviette detergenti zampe cane","cane",500);
+
+create table pagamento(
+id_pagamento int auto_increment primary key,
+iva_prodotto_pagamento float not null,
+info_metodo varchar(70) not null,
+data_pagmento date not null,
+importo float not null,
+quantita_pagamento int not null
+);
+
+create table spedizione(
+id_spedizione int auto_increment primary key,
+data_spedizione date not null,
+spese float not null,
+info_metodo varchar (500) not null
+);
+
