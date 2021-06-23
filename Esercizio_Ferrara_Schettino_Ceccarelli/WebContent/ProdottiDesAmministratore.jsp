@@ -13,7 +13,7 @@
 <h1> Dettagli del prodotto </h1>
 
 <%
-ProdottiBean prod= (ProdottiBean) request.getAttribute("descrizione");
+ProdottiBean prod= (ProdottiBean) request.getAttribute("des");
 %>
 
 <table>
@@ -36,13 +36,6 @@ ProdottiBean prod= (ProdottiBean) request.getAttribute("descrizione");
 </tr>
 
 </table>
-<br><br>
-<a href="Controllo?action=aggiungi&id=<%= prod.getId() %>">
-<input type="button" value="Aggiungi al carrello">
-</a> <br><br>
-<a href="ProdottiCarrello.jsp">
-<input type="button" value="Visualizza carrello">
-</a>
 
 </body>
 </html>

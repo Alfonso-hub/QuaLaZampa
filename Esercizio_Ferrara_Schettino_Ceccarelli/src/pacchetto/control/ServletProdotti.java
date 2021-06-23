@@ -43,6 +43,7 @@ public class ServletProdotti extends HttpServlet {
 		String azione= request.getParameter("action");
 			
 		if (azione != null && azione.equalsIgnoreCase("dettagli")) {
+			
 			RequestDispatcher dis= getServletContext().getRequestDispatcher("/ProdottiDescrizione.jsp");
 			dis.forward(request, response);
 		}

@@ -10,5 +10,9 @@ public interface ProdottiModel {
 	public ProdottiBean doRetriveByKey (int code) throws SQLException;
 	
 	public ArrayList<ProdottiBean> doRetriveAll () throws SQLException;
+	
+	public void ModificaProdotto (int cod, String nome, String disponibilita, int quantita, float iva_prodotti, String descrizione, float prezzo_base) throws SQLException;
+	
+	public void doDelete(int id) throws SQLException;
 
 }

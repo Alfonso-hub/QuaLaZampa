@@ -2,6 +2,7 @@ package pacchetto.control;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,26 +25,31 @@ public class ServletLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String pw = request.getParameter("password");
-		String indirizzamento = "";
 		
 		try{
 				ClienteBean cerca = user.cercaUtente(email, pw);
 				if(cerca.getId() != -1) {
-			
+					if(user.cercaAmministratore(email, pw)) {
+					request.getSession().setAttribute("Amministratore", true);
+					System.out.println("valore " + user.cercaAmministratore(email, pw) );
+					RequestDispatcher dis = request.getRequestDispatcher("/PageAmministratore.jsp");
+					dis.forward(request, response);
+					}
 					request.getSession().setAttribute("accedi", cerca);
-					indirizzamento = "/ProdottiView.jsp";
+					System.out.println("valore " + user.cercaAmministratore(email, pw) );
+					RequestDispatcher dis =  request.getRequestDispatcher("/ProdottiView.jsp");
+					dis.forward(request, response);
 					
 				}else {
 					request.getSession().setAttribute("accedi", null);
-					indirizzamento = "/PageLogin.jsp";
 					
+					RequestDispatcher dis =  request.getRequestDispatcher("/PageLogin.jsp");
+					dis.forward(request, response);
 				}
 				
 				
 			}catch(Exception e) {
 			System.out.println("Error ServletLogin: " + e.getMessage());	
 			}
-			response.sendRedirect(request.getContextPath() + indirizzamento);
-
 	}
 }

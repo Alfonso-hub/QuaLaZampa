@@ -124,5 +124,64 @@ public class ProdottiModelDM implements ProdottiModel {
 		
 		return prod;
 	}
+	
+	public void ModificaProdotto (int cod, String nome, String disponibilita, int quantita, float iva_prodotti, String descrizione, float prezzo_base) throws SQLException{
+		
+		Connection con= null;
+		PreparedStatement prep= null;
+		
+		String query= "UPDATE prodotti SET nome=?, disponibilita=?, quantita=?, iva_prodotti=?, descrizione=?, prezzo_base=?"
+				+ " WHERE id_prodotto=?";
+		
+		try {
+			con= ConnectionPool.getConnection();
+			prep= con.prepareStatement(query);
+			prep.setString(1, nome);
+			prep.setString(2, disponibilita);
+			prep.setInt(3, quantita);
+			prep.setFloat(4, iva_prodotti);
+			prep.setString(5, descrizione);
+			prep.setFloat(6, prezzo_base);
+			prep.setInt(7, cod);
+			
+			prep.executeUpdate();
+			
+			con.commit();
+		}
+		finally {
+			try {
+				if (prep != null)
+					prep.close();
+			}
+			finally {
+				ConnectionPool.relaseConnection(con);
+			}
+			
+		}
+		
+	}
+	
+	public void doDelete(int code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+			
+		String deleteSQL = "DELETE FROM " + NAME_TABLE + " WHERE id_prodotto = ?";
 
+		try {
+			connection = ConnectionPool.getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, code);
+
+		preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				ConnectionPool.relaseConnection(connection);
+			}
+		}
+	}
+	
 }

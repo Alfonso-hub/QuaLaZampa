@@ -2,7 +2,7 @@
 
 <header>
 <div class="header">
-<img src="./image/logo.png" class="logo" width="110" height="110">
+ <a href="ProdottiView.jsp"><img src="./image/logo.png" class="logo" width="110" height="110"></a>
 
 <a href="ProdottiCarrello.jsp"><img src="./image/icona_carrello.png" class="icone"></a>
 

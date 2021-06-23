@@ -9,7 +9,7 @@
 <title> Carrello del cliente </title>
 </head>
 <body>
-
+<%@ include file = "../fragments/header.jsp" %>
 <h1 align="center"> Qui viene visualizzato il carrello del cliente </h1>
 
 <%

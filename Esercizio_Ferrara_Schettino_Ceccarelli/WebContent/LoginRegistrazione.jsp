@@ -20,19 +20,19 @@
 <input type="text" name="nome" placeholder="Inserisci nome" required>
 
 <label><b>Cognome:</b></label>
-<input type="text" name="cognome" placeholder="Inserisci cognome" required><br><br>
+<input type="text" name="cognome" placeholder="Inserisci cognome" required>
 
 <label><b>Username:</b></label>
 <input type="text" name="username" placeholder="Inserisci username" required>
 
 <label><b>Email:</b></label>   
-<input type="email" name="email" placeholder="Inserisci email" required><br><br>
+<input type="email" name="email" placeholder="Inserisci email" required>
 
 <label><b>Nuova Password:</b></label>
 <input type="password" name="new password" placeholder="Inserisci password" required>
 
 <label><b>Ripeti Password:</b></label>
-<input type="password" name="rip password" placeholder="Reinserisci password" required><br><br>
+<input type="password" name="rip password" placeholder="Reinserisci password" required>
 
 <label><b>Telefono:</b></label>
 <input type="text" name="telefono" placeholder="Inserisci num.Telefono" required>
@@ -40,7 +40,7 @@
 <label><b>Codice Fiscale:</b></label>
 <input type="text" name="codice" placeholder="Inserisci codice fiscale" required><br><br>
 
-<input type="submit" class="login" value="Registrati"><br>
+<input type="submit" class="login" value="Registrati">
 </div>
 </form>
 <br>
@@ -48,10 +48,6 @@
 Hai gia un account? <a href="PageLogin.jsp"><input type="button" value="clicca qui"></a>
 </div>
 
-<footer>
-<div align="center">
-  <p> &#169; QuaLaZampa 2021</p>
-  </div>
-  </footer>
+<%@ include file = "../fragments/footerSemplice.jsp" %>
 </body>
 </html>

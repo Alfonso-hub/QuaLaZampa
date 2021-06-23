@@ -7,7 +7,7 @@
 <title>Info Prodotto acquistato</title>
 </head>
 <body>
-
+<%@ include file = "../fragments/header.jsp" %>
 <% ProdottiBean bean= (ProdottiBean) request.getAttribute("informazioni prodotto");
 int quantit= (int) request.getAttribute("quantit");
 %>
@@ -20,11 +20,11 @@ L'IVA del prodotto è <%= bean.getIva() %>, il prezzo del singolo prodotto è <%= 
 e il cliente ha acquistato <%= quantit %> quantità di tale prodotto.
 </p> <br><br>
 
-<center>
+<div align="center">
 <a href="ProdottiView.jsp">
 <input type="button" value="visualizza i prodotti">
 </a>
-</center>
+</div>
 
 </body>
 </html>

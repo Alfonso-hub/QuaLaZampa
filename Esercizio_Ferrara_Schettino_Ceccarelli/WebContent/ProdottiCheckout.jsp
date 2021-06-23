@@ -9,7 +9,7 @@
 <title> Checkout </title>
 </head>
 <body>
-
+<%@ include file = "../fragments/header.jsp" %>
 
 <h1> Grazie per aver utilizzato il nostro sito </h1>
 
@@ -20,7 +20,7 @@
 <% DatiAnagraficiBean dati = (DatiAnagraficiBean) request.getAttribute("telefono"); 
 IndirizzoSpedizioneBean  utentibean = (IndirizzoSpedizioneBean) request.getAttribute("indirizzo"); %>
 
-<%= dati.getNome() %><%= dati.getCognome()%>,<br>
+<%= dati.getNome() %> <%= dati.getCognome()%>,<br>
 <%= utentibean.getVia() %>, <br>
 <%= dati.getTelefono() %> <br>
 <%= utentibean.getCap() %>

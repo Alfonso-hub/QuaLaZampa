@@ -176,4 +176,41 @@ private static String TABELLA_NAME = "cliente";
 		return dati;
 
 	}
+	
+	public boolean cercaAmministratore(String email, String password) throws SQLException {
+		Connection con = null;
+		PreparedStatement prep = null;
+		String query = "SELECT * FROM " + TABELLA_NAME + " WHERE e_mail = ? AND password = ? " ;
+		boolean trovato = false;
+		ClienteBean cliente = new ClienteBean();
+		try {
+			con = ConnectionPool.getConnection(); 
+			prep = con.prepareStatement(query);
+			prep.setString(1, email);
+			prep.setString(2, password);
+			
+			ResultSet res  = prep.executeQuery();
+			
+				while(res.next()) {
+				cliente.setEmail(res.getString("e_mail"));
+				cliente.setPassword(res.getString("password"));
+				cliente.setUsername(res.getString("username"));
+				cliente.setId(res.getInt("id_cliente"));
+				cliente.setAmministratore(res.getString("amministratore"));	
+			}
+				if(cliente.getAmministratore().equals("SI")){
+					trovato = true;
+				}
+		}finally {
+			try {
+				if (prep != null)
+					prep.close();
+			}
+			finally {
+				ConnectionPool.relaseConnection(con);
+			}
+		}
+			return trovato;
+		}
+	
 					}

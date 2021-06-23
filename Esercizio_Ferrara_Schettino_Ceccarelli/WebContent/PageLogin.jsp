@@ -14,7 +14,7 @@
 <body>
 <img src="./image/logo.png" class="img-logo" width="200" height="200" >
 <div class="container">
-<h1>Accedi</h1>
+<h1 align="center">Accedi</h1>
 <form action="Login"  method="post" >
 <p>Inserisci i tuoi dati per Accedere</p><br>
 
@@ -35,10 +35,6 @@ Per procedere come ospite invece <a href="ProdottiView.jsp"><input type="button"
 </div>
 </div>
 
-<footer>
-<div align="center">
-  <p> &#169; QuaLaZampa 2021</p>
-  </div>
-  </footer>
+<%@ include file = "../fragments/footerSemplice.jsp" %>
 </body>
 </html>
