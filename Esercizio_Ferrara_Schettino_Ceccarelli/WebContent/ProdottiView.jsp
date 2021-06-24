@@ -55,7 +55,7 @@ if (prod != null && prod.size() != 0) {
 	Iterator<?> it= prod.iterator();
 	while (it.hasNext()) {
 		ProdottiBean ben= (ProdottiBean) it.next();
-		String nome= ben.getPat().substring(95);
+		String nome= ben.getPat().substring(104);
 %>
 
 <tr>

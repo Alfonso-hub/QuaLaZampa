@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import pacchetto.model.ClienteBean;
 import pacchetto.model.ProdottiBean;
 import pacchetto.model.ProdottiModelDM;
 
@@ -21,7 +22,9 @@ public class ServletAmministratore extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setAttribute("prodotti", prod.doRetriveAll());
-						
+			ClienteBean cerca= (ClienteBean) request.getSession().getAttribute("accedi");
+			request.setAttribute("admin", cerca);
+			
 			String azione= request.getParameter("action");
 			if (azione != null && azione.equalsIgnoreCase("dettagli")) {
 			request.setAttribute("des", prod.doRetriveByKey(Integer.parseInt(request.getParameter("id"))));	
@@ -34,6 +37,11 @@ public class ServletAmministratore extends HttpServlet {
 				
 				RequestDispatcher dis= getServletContext().getRequestDispatcher("/ModificaAmministratore.jsp");
 				dis.forward(request, response);		
+			}
+			
+			if (azione != null && azione.equalsIgnoreCase("aggiungi")) {
+				RequestDispatcher dis= getServletContext().getRequestDispatcher("/AggiungiProdAdmin.jsp");
+				dis.forward(request, response);	
 			}
 			
 		} catch (SQLException e) {

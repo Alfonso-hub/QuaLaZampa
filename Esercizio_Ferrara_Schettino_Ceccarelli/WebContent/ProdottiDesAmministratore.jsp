@@ -9,7 +9,7 @@
 <title> Dettagli del prodotto </title>
 </head>
 <body>
-<%@ include file = "../fragments/header.jsp" %>
+<%@ include file = "../fragments/headerAmministratore.jsp" %>
 <h1> Dettagli del prodotto </h1>
 
 <%

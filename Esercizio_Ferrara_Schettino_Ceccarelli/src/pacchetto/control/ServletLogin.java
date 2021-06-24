@@ -31,12 +31,10 @@ public class ServletLogin extends HttpServlet {
 				if(cerca.getId() != -1) {
 					if(user.cercaAmministratore(email, pw)) {
 					request.getSession().setAttribute("Amministratore", true);
-					System.out.println("valore " + user.cercaAmministratore(email, pw) );
-					RequestDispatcher dis = request.getRequestDispatcher("/PageAmministratore.jsp");
+					RequestDispatcher dis = request.getRequestDispatcher("/ControlloAmministratore.jsp");
 					dis.forward(request, response);
 					}
 					request.getSession().setAttribute("accedi", cerca);
-					System.out.println("valore " + user.cercaAmministratore(email, pw) );
 					RequestDispatcher dis =  request.getRequestDispatcher("/ProdottiView.jsp");
 					dis.forward(request, response);
 					

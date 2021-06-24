@@ -161,7 +161,7 @@ public class ProdottiModelDM implements ProdottiModel {
 		
 	}
 	
-	public void doDelete(int code) throws SQLException {
+	public synchronized void doDelete(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 			
@@ -173,6 +173,7 @@ public class ProdottiModelDM implements ProdottiModel {
 			preparedStatement.setInt(1, code);
 
 		preparedStatement.executeUpdate();
+		connection.commit();
 
 		} finally {
 			try {

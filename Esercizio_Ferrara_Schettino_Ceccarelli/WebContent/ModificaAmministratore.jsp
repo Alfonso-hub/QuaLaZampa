@@ -9,7 +9,7 @@
 <title>Modifica</title>
 </head>
 <body>
-<%@ include file = "../fragments/header.jsp" %>
+<%@ include file = "../fragments/headerAmministratore.jsp" %>
 <% ProdottiBean prod= (ProdottiBean) request.getAttribute("modifica"); %>
 <div align="center">
 <h1>Modifica del Prodotto</h1> 
