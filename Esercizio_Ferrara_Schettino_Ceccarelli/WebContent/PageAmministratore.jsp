@@ -68,6 +68,5 @@ if (prod != null && prod.size() != 0) {
 <input type="button" value="Aggiungi prodotto al catalogo">
 </a>
 
-<%@ include file = "../fragments/footerSemplice.jsp" %>
 </body>
 </html>

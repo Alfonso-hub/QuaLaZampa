@@ -41,6 +41,6 @@
 <input type="submit" class="login" value="modifica">
 </form>
 </div>
-<%@ include file = "../fragments/footerSemplice.jsp" %>
+
 </body>
 </html>

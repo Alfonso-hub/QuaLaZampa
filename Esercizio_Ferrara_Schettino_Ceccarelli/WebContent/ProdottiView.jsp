@@ -6,7 +6,6 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="./image/icona_catalogo.png">
-<link rel="stylesheet" type="text/css" href="./css/Carrello.css">
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
 
 
@@ -23,7 +22,7 @@ if (prod == null){
 }
 %>
 <%@ include file = "../fragments/header.jsp" %>
-<div class="container">
+<div class="content">
   <img class="mySlides"src="./image/Benvenuto.png">
   <img class="mySlides" src="./image/0scorrimento.jpg">
   <img class="mySlides" src="./image/1scorrimento.jpeg">
@@ -36,20 +35,6 @@ if (prod == null){
 <%@ include file="../fragments/menu.jsp" %>
 <h1> Catalogo Prodotti </h1>
 
-
-
-
-
-<div class="card" style="overflow-x:auto;">
-<table>
-<tr>
-<th> Codice</th>
-<th> Immagine </th>
-<th> Nome </th>
-<th> Descrizione </th>
-<th> Azioni </th>
-</tr>
-
 <%
 if (prod != null && prod.size() != 0) {
 	Iterator<?> it= prod.iterator();
@@ -57,30 +42,32 @@ if (prod != null && prod.size() != 0) {
 		ProdottiBean ben= (ProdottiBean) it.next();
 		String nome= ben.getPat().substring(104);
 %>
-
-<tr>
-<td> <%= ben.getId() %> </td>
-<td> <script type="text/javascript" src="./resources/imageZoom.js"></script>
+<div class="row">
+ <div class="col">
+<div class="card">
+<p>
+<script type="text/javascript" src="./resources/imageZoom.js"></script>
 <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="./image/<%= nome %>" height="180" width="180">
-<td> <%= ben.getNome() %> </td>
-<td> <%= ben.getDescrizione() %> </td>
-<td>
+<br><b> <%= ben.getNome() %> </b></p>
+<p>Descrizione:<br> <%= ben.getDescrizione() %><br>
+Codice Prodotto: <%= ben.getId() %><br>
+<b>Prezzo: <%= ben.getPrezzo() %> &euro; </b> </p>
+ 
+ <p class="card button1">
 <a href="Controllo?action=dettagli&id=<%= ben.getId() %>">
-<input type="button" value="Dettagli prodotto"><br>
-</a> <br>
+<input type="button" class="pulsante-small" value="Dettagli prodotto">
+</a>
 <a href="Controllo?action=aggiungi&id=<%= ben.getId() %>">
-<input type="button" value="Aggiungi al carrello">
-</a> <br><br>
-</td>
-</tr>
-
+<input type="button" class="pulsante-small" value="Aggiungi al carrello">
+</a><br><br>
+</p>
+</div>
+</div>
 <%
 	}
 }
 %>
-
-</table></div>
-
+</div>
 <br><br>
 <%@ include file="../fragments/footer.jsp" %>
 </body>

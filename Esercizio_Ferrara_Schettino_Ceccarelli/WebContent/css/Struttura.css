@@ -16,6 +16,7 @@ body {
 
 h1 {
   font-size: 40px;
+  text-align: center;
 }
 
 .icone{
@@ -84,7 +85,7 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {background-color: #ffffff}
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -96,22 +97,24 @@ footer {
   background-color: #785d4e;
 }
 
-
 .col{
   float: left;
   width: 33.33%;
   padding: 16px;
+  border-color: white;
 }
 
 .row:after {
   content: "";
   display: table;
   clear: both;
+  border-color: white;
 }
 
 @media screen and (max-width: 600px) {
   .col {
     width: 100%;
+    border-color: white;
   }
 }
 
@@ -122,30 +125,44 @@ footer {
 }
 
 /*Prodotti*/
-
-.card {
-  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
+.conta {
+  	margin-left: auto;
+ 	margin-right: auto;
+  	padding: 16px;
+  	background-color: #ffffff;
 }
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
+.card {
+  box-shadow: 0 4px 8px 0 white;
+  border-color: white;
+  max-width: 300px;
+  margin: auto;
   text-align: center;
-  cursor: pointer;
+  border-bottom: white;
+}
+
+.card button1 {
+  padding: 12px;
+  text-align: center;
   width: 100%;
   font-size: 18px;
 }
 
-.card button:hover {
-  opacity: 0.7;
+.pulsante-small {
+  background-color: #78C0A8;
+  color: black;
+  font-weight:bold;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+  margin: 2px 2px;
+  transition-duration: 0.5s;
+  height:50px;
+  width: 180px;
 }
+
 
 @media screen and (max-width: 600px) {
   .col{
@@ -155,4 +172,4 @@ footer {
   .dropdown-content a {
     float: none;
     width:100%;
-
+  }

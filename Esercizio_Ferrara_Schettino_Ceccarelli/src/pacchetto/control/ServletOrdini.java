@@ -65,7 +65,7 @@ public class ServletOrdini extends HttpServlet {
 		
 		car.delete();
 		request.getSession().setAttribute("carrello", car);
-		RequestDispatcher dis= request.getRequestDispatcher("ProdottiCheckout.jsp");
+		RequestDispatcher dis= request.getRequestDispatcher("Pagamento.jsp");
 		dis.forward(request, response);
 		}
 		

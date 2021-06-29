@@ -4,10 +4,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title> Quetsa è la pagina del controllo dell'amministratore </title>
+<link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
+<link rel="stylesheet" type="text/css" href="./css/Bottone.css">
+<title>Home Amministratore</title>
 </head>
-<body>
 
+<body>
+<header>
+<div class="header">
+ <a href="ControlloAmministratore.jsp">
+ <img src="./image/logo.png" class="logo" width="110" height="110"></a>
+<a href="Logout"><img src="./image/account.png" class="icone" ></a>
+</div>
+</header>
 <%
 ClienteBean cerca= (ClienteBean)request.getAttribute("admin");
 
@@ -17,19 +26,21 @@ return ;
 }
 %>
 
+<div align="center">
 <h1> Benvenuto Amministratore <%= cerca.getUsername() %></h1>
-
-<a href="ControlloAdmin?azione=controllo">
-<input type="button" value="Controlla il catalogo"> <br><br>
+<div class="conteiner">
+<a class="a" href="ControlloAdmin?azione=controllo">
+<input type="button" class="button" value="Controlla il catalogo"> 
 </a>
 
-<a href="ControlloAdmin?azione=ordiniNominativo">
-<input type="button" value="Controlla gli ordini per nominativo cliente"> <br><br>
+<a class="a" href="ControlloAdmin?azione=ordiniNominativo">
+<input type="button"  class="button" value="Controlla gli ordini per cliente"> 
 </a>
 
-<a href="ControlloAdmin?azione=ordiniData">
-<input type="button" value="Controlla gli ordini per Data">
+<a class="a" href="ControlloAdmin?azione=ordiniData">
+<input type="button"  class="button" value="Controlla gli ordini per Data">
 </a>
-
+</div>
+</div>
 </body>
 </html>
