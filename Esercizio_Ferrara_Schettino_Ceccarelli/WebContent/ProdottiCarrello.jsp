@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <link rel="icon" type="image/x-icon" href="./image/icona_carrello.png">
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
+<link rel="stylesheet" type="text/css" href="./css/Bottone.css">
 <title> Carrello del cliente </title>
 </head>
 <body>
@@ -38,7 +39,7 @@ else {
 <script type="text/javascript" src="./resources/imageZoom.js"></script>
 <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="./image/<%= car.getCarrello().get(i).getPat().substring(104) %>" height="180" width="180">
 <br>
-<b>Nome prodotto: <%= car.getCarrello().get(i).getNome() %> <br>
+<b><%= car.getCarrello().get(i).getNome() %> <br>
 Codice prodotto: <%= car.getCarrello().get(i).getId() %> <% request.setAttribute("iden", car.getCarrello().get(i).getId()); %></b><br>
 <b>Prezzo singolo prodotto: <%= car.getCarrello().get(i).getPrezzo() %>&euro;</b> <br>
 
@@ -65,10 +66,10 @@ Quantità desiderata: <input type="number" name="scelta" min="1" max="<%= car.get
 
 <div class="container" align="center">
 <a style="color: white" href="Ordini?action=effettuaPagamento">
-<input type="button" class="pulsante-small"  value="Effettua pagamento">
+<input type="button" class="small" value="Effettua pagamento">
 </a>
 <a style="color: white" href="ProdottiView.jsp">
-<input type="button" class="pulsante-small" value="Torna alla lista prodotti">
+<input type="button" class="small" value="Torna alla lista prodotti">
 </a>
 </div>
 <%

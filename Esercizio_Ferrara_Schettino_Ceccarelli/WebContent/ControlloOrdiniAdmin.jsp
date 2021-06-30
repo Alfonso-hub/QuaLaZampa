@@ -7,7 +7,7 @@
 <title> Qui puoi controllare la lista ordini </title>
 </head>
 <body>
-
+<%@ include file = "../fragments/headerAmministratore.jsp" %>
 <h1> Qui puoi controllare la lista ordini inserendo il nome del cliente </h1>
 
 </body>

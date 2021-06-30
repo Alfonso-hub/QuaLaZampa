@@ -2,6 +2,7 @@ package pacchetto.control;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -38,7 +39,17 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 		
 		Part part= request.getPart("fileProd");
 		String fileName= extractFileName (part);
+		System.out.println("Lunghezza nome " + fileName.length());
+		System.out.println("nome " + fileName);
+		/*Alfonso
 		String savePath= "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
+		*/
+		//Miriam
+		String savePath= "C:\\Users\\Utente\\git\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
+		
+		/*Sabrina
+		String savePath= "C:\\Users\\Utente\\git\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
+		*/
 		part.write(savePath + File.separator);
 		
 		String nomeProd= request.getParameter("nomeProd");

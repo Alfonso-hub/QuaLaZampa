@@ -12,8 +12,8 @@
 <%@ include file = "../fragments/headerAmministratore.jsp" %>
 <% ProdottiBean prod= (ProdottiBean) request.getAttribute("modifica"); %>
 <div align="center">
-<h1>Modifica del Prodotto</h1> 
-<p><%= prod.getNome() %></p>
+<h1>Modifica del Prodotto<br><br>
+<%= prod.getNome() %></h1>
 </div>
 <div class="container">
 <form action="Modifica"  method="get">

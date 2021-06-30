@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="icon" type="image/x-icon" href="./image/icona_catalogo.png">
-<link rel="stylesheet" type="text/css" href="./css/Carrello.css">
+<link rel="stylesheet" type="text/css" href="./css/Bottone.css">
 <title> Dettagli del prodotto </title>
 </head>
 <body>

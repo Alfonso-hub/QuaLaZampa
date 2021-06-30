@@ -56,11 +56,11 @@ h1 {
   border: none;
   cursor: pointer;
   width: 100%;
-  font-size: 12px;
+  font-size: 20px;
   margin: 2px 2px;
   transition-duration: 0.5s;
-  height:50px;
-  width: 200px;
+  height:60px;
+  width: 300px;
 }
 
 .a:link, .a:visited {

@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="./image/icona_catalogo.png">
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
+<link rel="stylesheet" type="text/css" href="./css/Bottone.css">
 
 
 <title>Catalogo</title>
@@ -40,7 +41,7 @@ if (prod != null && prod.size() != 0) {
 	Iterator<?> it= prod.iterator();
 	while (it.hasNext()) {
 		ProdottiBean ben= (ProdottiBean) it.next();
-		String nome= ben.getPat().substring(104);
+		String nome= ben.getPat().substring(ben.getPat().lastIndexOf("image")+6);
 %>
 <div class="row">
  <div class="col">
