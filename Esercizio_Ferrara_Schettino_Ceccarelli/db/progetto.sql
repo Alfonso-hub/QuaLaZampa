@@ -15,6 +15,10 @@ insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, p
 insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Purina crocchette gatto", "SI", 500, "crocchette al pollo per gatti da 2kg", 14.55, "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\Purina_crocchette_gatto.png");
 insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Cuccia per gatto", "SI", 500, "Cuccia per gatto Small 47x13cm", 10.25, "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\Cuccia_per_gatto.jpg");
 insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Salviette detergenti", "SI", 500, "Salviette detergenti zampe cane", 3.99, "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\Salviette_detergenti_per_animali.jpg");
+insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Altalena per uccelli", "SI", 500, "Altalena in legno per uccelli", 5.85, "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\altalenaBird.jpg");
+insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Gioco per  Uccelli", "SI", 500, "Gioco per Uccelli in Legno con scaletta", 10.35, "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\Attrezzi_Pappagalli.jpg");
+insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Casetta Coniglio", "SI", 500, "Casetta per Coniglio in legno", 37.99, "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\casetta_legno_coniglio.jpg");
+insert into prodotti (nome, disponibilita, quantita, descrizione, prezzo_base, pat) values ("Gabbia per criceti", "SI", 500, "Gabbia per criceti size 49x34x42cm", 20.63, "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\GabbiaCriceti.jpg");
 
 create table cliente (
 username varchar(25) not null,
@@ -100,6 +104,10 @@ insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodo
 insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (2,"crocchette al pollo per gatti da 2kg","gatto",500);
 insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (3, "Cuccia per gatto Small 47x13cm","gatto",500);
 insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (4,"Salviette detergenti zampe cane","cane",500);
+insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (5,"Altalena per uccelli","uccelli",500);
+insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (6,"Gioco per  Uccelli","uccelli",500);
+insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (7,"Casetta Coniglio","animali piccola taglia",500);
+insert into catalogo (id_prodotto_catalogo,informazioni,categoria,quantita_prodotto) values (8,"Gabbia per criceti","animali piccola taglia",500);
 
 create table pagamento(
 id_pagamento int auto_increment primary key,
@@ -116,4 +124,3 @@ data_spedizione date not null,
 spese float not null,
 info_metodo varchar (500) not null
 );
-
