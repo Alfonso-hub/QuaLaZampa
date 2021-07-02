@@ -38,5 +38,7 @@ Codice Prodotto: <%= prod.getId() %><br>
 <input type="button" class="small" value="Visualizza carrello">
 </a>
 </div>
+<br><br>
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>

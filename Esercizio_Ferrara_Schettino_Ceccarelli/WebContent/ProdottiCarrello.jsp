@@ -37,7 +37,7 @@ else {
  <div class="col">
 <div class="card">
 <script type="text/javascript" src="./resources/imageZoom.js"></script>
-<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="./image/<%= car.getCarrello().get(i).getPat().substring(104) %>" height="180" width="180">
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="./image/<%= car.getCarrello().get(i).getPat().substring(car.getCarrello().get(i).getPat().lastIndexOf("image")+6) %>" height="180" width="180">
 <br>
 <b><%= car.getCarrello().get(i).getNome() %> <br>
 Codice prodotto: <%= car.getCarrello().get(i).getId() %> <% request.setAttribute("iden", car.getCarrello().get(i).getId()); %></b><br>
@@ -76,5 +76,7 @@ Quantità desiderata: <input type="number" name="scelta" min="1" max="<%= car.get
 }
 %>
 <br><br>
+<%@ include file="../fragments/footer.jsp" %>
+
 </body>
 </html>
