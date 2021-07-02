@@ -49,11 +49,7 @@ public class ServletOrdini extends HttpServlet {
 		
 		if (azione.equals("effettuaPagamento")) {
 		try {
-			IndirizzoSpedizioneBean  utentibean = utenti.cercaIndirizzo(bean.getId());
-			DatiAnagraficiBean tel = utenti.cercadati(bean.getId());
-		
-			request.setAttribute("indirizzo", utentibean);
-			request.setAttribute("telefono", tel);
+			
 			
 			for(int i = 0; i<car.getDimensione(); i++) {
 		ordini.registraOrdine(bean.getId(), car.getCarrello().get(i).getId(), car.getCarrello().get(i).getTotPrezzo(), "acquistato", data, car.getCarrello().get(i).getQuantitaDesiderata(), car.getCarrello().get(i).getPrezzo());
@@ -63,8 +59,7 @@ public class ServletOrdini extends HttpServlet {
 		System.out.println("Error Pagamento Ordine " + e.getMessage());
 		}
 		
-		car.delete();
-		request.getSession().setAttribute("carrello", car);
+		
 		RequestDispatcher dis= request.getRequestDispatcher("Pagamento.jsp");
 		dis.forward(request, response);
 		}

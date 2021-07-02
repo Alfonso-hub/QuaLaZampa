@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="pacchetto.model.Carrello"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -29,8 +29,19 @@
             </div>
           
         <label>
-          <input type="radio" checked="checked" name="sameadr">Indirizzo
+          <input type="radio" name="sameadr">Indirizzo inserito nel lato registrazione
         </label>
+        <label>
+        	<input type="radio" name="sameadr" id="selezionato" onclick="funzione()"> Nuovo indirizzo spedizione
+        </label>
+        
+        <script> function funzione(){
+        	var variabile= document.getElementById("selezionato");
+    		document.createElements("p");
+    		
+        } 
+        		
+        </script>
         <input type="submit" value="Continua checkout" class="btn">
       </form>
     </div>
@@ -38,12 +49,17 @@
   <div class="col-25">
     <div class="container">
       <h4>Carrello</h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      <% Carrello car= (Carrello) request.getSession().getAttribute("carrello");
+       		for(int i=0;i<car.getDimensione();i++){
+       			
+       
+       %>
+       <p> <%= car.getCarrello().get(i).getNome() %> prezzo: <%= car.getCarrello().get(i).getTotPrezzo() %> </p>
+       <%}%>
+       
       <hr>
-      <p>Totale <span class="price" style="color:black"><b>$30</b></span></p>
+      
+      <p>Totale <b><%= String.format("%.2f",car.calcolaSpesa())  %></b></p>
     </div>
   </div>
 </div>

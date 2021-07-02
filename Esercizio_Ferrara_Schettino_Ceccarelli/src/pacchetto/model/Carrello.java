@@ -1,5 +1,6 @@
 package pacchetto.model;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Carrello {
@@ -113,6 +114,16 @@ public class Carrello {
 			}
 				}
 		return tot;
+	}
+	
+	public float calcolaSpesa() {
+		float var1=0.00f;
+		
+		for(int i=0; i<car.size();i++) {
+			var1=var1 + car.get(i).getTotPrezzo();
+		}
+		
+		return var1;
 	}
 	
 	public void insertQuantita(int code, int q) {
