@@ -68,11 +68,12 @@ public class OrdiniModelDM implements OrdiniModel {
 		}
 		finally {
 			try {
-				if ((prep != null) && (prep2 != null) && (prep3 != null) && (prep4 != null)) {
+				if ((prep != null) && (prep2 != null) && (prep3 != null) && (prep4 != null) && (prep5 != null)) {
 					prep.close();
 					prep2.close();
 					prep3.close();
 					prep4.close();
+					prep5.close();
 				}
 			}
 			finally {
@@ -175,6 +176,165 @@ public class OrdiniModelDM implements OrdiniModel {
 		}
 		return quan;
 		
+	}
+	
+	public void effettuaPagamento (int idCliente, String metodoPagamento, Date data, String infoMetodoSpedizione) throws SQLException {
+		
+		Connection con= null;
+		PreparedStatement prep1= null;
+		PreparedStatement prep2= null;
+		PreparedStatement prep3= null;
+		PreparedStatement prep4= null;
+		PreparedStatement prep5= null;
+		PreparedStatement prep6= null;
+		String query1= "SELECT id_ordine_effettua FROM effettua WHERE id_cliente_effettua=?";
+		String query2= "SELECT id_ordine_pagamento FROM pagamento";
+		String query3= "SELECT prezzo_totale FROM ordine WHERE id_ordine=?";
+		String query4= "SELECT iva_inserito, quantita_inserito FROM inserito WHERE id_ordine_inserito=?";
+		String query5= "INSERT INTO pagamento (iva_prodotto_pagamento, info_metodo, data_pagmento, importo, quantita_pagamento, id_ordine_pagamento) VALUES (?, ?, ?, ?, ?, ?)";
+		String query6= "INSERT INTO spedizione (data_spedizione, spese, info_metodo, id_ordine_spedizione) VALUES (?, ?, ?, ?)";
+		ArrayList<Integer> idOrdineEffettua= new ArrayList<Integer>();
+		ArrayList<Integer> idOrdinePagamento= new ArrayList<Integer>();
+		ArrayList<Float> prezzoTotaleOrdine= new ArrayList<Float>();
+		ArrayList<Float> ivaInserito= new ArrayList<Float>();
+		ArrayList<Integer> quantitaInserito= new ArrayList<Integer>();
+		ArrayList<Integer> idOrdineTemporaneo= new ArrayList<Integer>();
+		
+		try {
+			con= ConnectionPool.getConnection();
+			prep1= con.prepareStatement(query1);
+			prep1.setInt(1, idCliente);
+			ResultSet residOrdineEffettua= prep1.executeQuery();
+			
+			while (residOrdineEffettua.next()) {
+				idOrdineEffettua.add(residOrdineEffettua.getInt("id_ordine_effettua"));
+			}
+			
+			prep2= con.prepareStatement(query2);
+			ResultSet residOrdinePagamento= prep2.executeQuery();
+			
+			while (residOrdinePagamento.next()) {
+				idOrdinePagamento.add(residOrdinePagamento.getInt("id_ordine_pagamento"));
+			}
+			
+			
+			if(idOrdinePagamento.size()==0) {
+				for (int i= 0; i < idOrdineEffettua.size(); i++) {
+					prep3= con.prepareStatement(query3);
+					prep3.setInt(1, idOrdineEffettua.get(i));
+					ResultSet resPrezzoTotale= prep3.executeQuery();
+					
+					while (resPrezzoTotale.next()) {
+						prezzoTotaleOrdine.add(resPrezzoTotale.getFloat("prezzo_totale"));
+					}
+					
+					prep4= con.prepareStatement(query4);
+					prep4.setInt(1, idOrdineEffettua.get(i));
+					ResultSet resIvaQuantit= prep4.executeQuery();
+					
+					while (resIvaQuantit.next()) {
+						ivaInserito.add(resIvaQuantit.getFloat("iva_inserito"));
+						quantitaInserito.add(resIvaQuantit.getInt("quantita_inserito"));
+					}
+				}
+				
+				for (int j= 0; j < ivaInserito.size(); j++) {
+					prep5= con.prepareStatement(query5);
+					prep5.setFloat(1, ivaInserito.get(j));
+					prep5.setString(2, "Il pagamento è avvenuto tramite carta prepagata");
+					prep5.setDate(3, data);
+					prep5.setFloat(4, prezzoTotaleOrdine.get(j));
+					prep5.setInt(5, quantitaInserito.get(j));
+					prep5.setInt(6, idOrdineEffettua.get(j));
+					
+					prep5.executeUpdate();
+					con.commit();
+					
+					prep6= con.prepareStatement(query6);
+					prep6.setDate(1, data);
+					prep6.setFloat(2, 0);
+					prep6.setString(3, "La spedizione è gratuita poichè è un servizio offerto dall'attività");
+					prep6.setInt(4, idOrdineEffettua.get(j));
+					
+					prep6.executeUpdate();
+					con.commit();
+				}
+			}
+			
+			else {
+				
+				for(int i= 0; i < idOrdineEffettua.size(); i++) {
+					boolean trovato= false;
+						for (int j= 0; j < idOrdinePagamento.size(); j++) {
+						if (idOrdineEffettua.get(i) == idOrdinePagamento.get(j)) {
+							trovato= true;
+						}
+				}
+					if(trovato==false) {
+						idOrdineTemporaneo.add(idOrdineEffettua.get(i));
+					}
+					
+				}
+				
+				
+			for (int i= 0; i < idOrdineTemporaneo.size(); i++) {
+					prep3= con.prepareStatement(query3);
+					prep3.setInt(1, idOrdineTemporaneo.get(i));
+					ResultSet resPrezzoTotale= prep3.executeQuery();
+					
+					while (resPrezzoTotale.next()) {
+						prezzoTotaleOrdine.add(resPrezzoTotale.getFloat("prezzo_totale"));
+					}
+					
+					prep4= con.prepareStatement(query4);
+					prep4.setInt(1, idOrdineTemporaneo.get(i));
+					ResultSet resIvaQuantit= prep4.executeQuery();
+					
+					while (resIvaQuantit.next()) {
+						ivaInserito.add(resIvaQuantit.getFloat("iva_inserito"));
+						quantitaInserito.add(resIvaQuantit.getInt("quantita_inserito"));
+					}
+				}
+				
+				for (int j= 0; j < ivaInserito.size(); j++) {
+					prep5= con.prepareStatement(query5);
+					prep5.setFloat(1, ivaInserito.get(j));
+					prep5.setString(2, "Il pagamento è avvenuto tramite carta prepagata");
+					prep5.setDate(3, data);
+					prep5.setFloat(4, prezzoTotaleOrdine.get(j));
+					prep5.setInt(5, quantitaInserito.get(j));
+					prep5.setInt(6, idOrdineTemporaneo.get(j));
+					
+					prep5.executeUpdate();
+					con.commit();
+					
+					prep6= con.prepareStatement(query6);
+					prep6.setDate(1, data);
+					prep6.setFloat(2, 0);
+					prep6.setString(3, "La spedizione è gratuita poichè è un servizio offerto dall'attività");
+					prep6.setInt(4, idOrdineTemporaneo.get(j));
+					
+					prep6.executeUpdate();
+					con.commit();
+				}
+				
+			}
+		}
+		finally {
+			try {
+				if ((prep1 != null) && (prep2 != null) && (prep3 != null) && (prep4 != null) && (prep5 != null) && (prep6 != null)) {
+					prep1.close();
+					prep2.close();
+					prep3.close();
+					prep4.close();
+					prep5.close();
+					prep6.close();
+				}
+			}
+			finally {
+				ConnectionPool.relaseConnection(con);
+			}
+		}
 	}
 
 }

@@ -38,7 +38,19 @@
 <input type="text" name="telefono" placeholder="Inserisci num.Telefono" required>
 
 <label><b>Codice Fiscale:</b></label>
-<input type="text" name="codice" placeholder="Inserisci codice fiscale" required><br><br>
+<input type="text" name="codice" placeholder="Inserisci codice fiscale" required>
+
+<label><b>Provincia:</b></label>
+<input type="text" name="provincia" placeholder="Inserisci la provincia" required>
+
+<label><b>Cap:</b></label>
+<input type="text" name="cap" placeholder="Inserisci il cap" required>
+
+<label><b>Città:</b></label>
+<input type="text" name="citta" placeholder="Inserisci la città" required>
+
+<label><b>Via:</b></label>
+<input type="text" name="via" placeholder="Inserisci la via" required> <br><br>
 
 <input type="submit" class="login" value="Registrati">
 </div>

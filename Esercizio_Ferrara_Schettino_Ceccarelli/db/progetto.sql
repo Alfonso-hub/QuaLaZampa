@@ -24,7 +24,7 @@ create table cliente (
 username varchar(25) not null,
 id_cliente int primary key auto_increment,
 e_mail varchar (25) not null,
-password varchar (50) not null,
+password varchar (50) not0 null,
 amministratore enum ("SI", "NO") not null
 );
 
@@ -115,12 +115,16 @@ iva_prodotto_pagamento float not null,
 info_metodo varchar(70) not null,
 data_pagmento date not null,
 importo float not null,
-quantita_pagamento int not null
+quantita_pagamento int not null,
+id_ordine_pagamento int,
+foreign key (id_ordine_pagamento) references ordine(id_ordine) on delete set null on update cascade
 );
 
 create table spedizione(
 id_spedizione int auto_increment primary key,
 data_spedizione date not null,
 spese float not null,
-info_metodo varchar (500) not null
+info_metodo varchar (500) not null,
+id_ordine_spedizione int,
+foreign key (id_ordine_spedizione) references ordine(id_ordine) on delete set null on update cascade
 );

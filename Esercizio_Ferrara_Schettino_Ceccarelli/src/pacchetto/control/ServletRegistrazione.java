@@ -34,11 +34,15 @@ public class ServletRegistrazione extends HttpServlet {
 		String ripPassword= request.getParameter("rip password");
 		String telefono= request.getParameter("telefono");
 		String cf =request.getParameter("codice");
+		String provincia= request.getParameter("provincia");
+		String cap= request.getParameter("cap");
+		String citta= request.getParameter("citta");
+		String via= request.getParameter("via");
 		String redirect= "";
 		
 		if (newPassword.equals(ripPassword)) {
 		try {
-			user.registraUtente(nome, cognome, username, email, ripPassword, telefono, cf);
+			user.registraUtente(nome, cognome, username, email, ripPassword, telefono, cf, via, citta, provincia, cap);
 			ClienteBean client = user.cercaUtente(email, ripPassword) ;
 			request.getSession().setAttribute("accedi", client);
 			redirect= "/ProdottiView.jsp";

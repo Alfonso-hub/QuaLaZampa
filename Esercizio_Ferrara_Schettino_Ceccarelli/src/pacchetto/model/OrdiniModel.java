@@ -10,8 +10,10 @@ public interface OrdiniModel {
 	
 	public ArrayList<OrdineBean> cercaOrdine (int id_cliente) throws SQLException;
 
-	public ProdottiBean ricercaInformazioniProdotto(int id_ordine) throws SQLException;
+	public ProdottiBean ricercaInformazioniProdotto (int id_ordine) throws SQLException;
 	
 	public int ricercaQuantitaProdotto (int code) throws SQLException;
+	
+	public void effettuaPagamento (int idCliente, String metodoPagamento, Date data, String infoMetodoSpedizione) throws SQLException;
 	
 }

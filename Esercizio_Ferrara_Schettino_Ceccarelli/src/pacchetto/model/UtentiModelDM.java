@@ -39,12 +39,14 @@ private static String TABELLA_NAME = "cliente";
 	}
 
 
-	public void registraUtente(String nome, String cognome, String username, String email, String password, String telefono, String cf) throws SQLException {
+	public void registraUtente(String nome, String cognome, String username, String email, String password, String telefono, String cf, String via, String citta, String provincia, String cap) throws SQLException {
 	Connection con =null;
 	PreparedStatement pre= null;
 	PreparedStatement prep= null;
+	PreparedStatement prep1= null;
 	String query = "INSERT INTO " + UtentiModelDM.TABELLA_NAME +" (username, e_mail, password, amministratore) VALUES (?, ?, ?, ?)";
 	String query1 = "INSERT INTO dati_anagrafici (nome, cognome, telefono, cf, id_cliente_dati) VALUES (?, ?, ?, ?, (SELECT id_cliente FROM cliente WHERE id_cliente= ?))";
+	String query2= "INSERT INTO indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) VALUE (?, ?, ?, ?, ?)";
 	
 	try {
 		con = ConnectionPool.getConnection();
@@ -70,11 +72,24 @@ private static String TABELLA_NAME = "cliente";
 		
 		con.commit();
 		
+		prep1 = con.prepareStatement(query2);
+		
+		prep1.setString(1, via);
+		prep1.setString(2, citta);
+		prep1.setString(3, provincia);
+		prep1.setString(4, cap);
+		prep1.setInt(5,  clientenew.getId());
+		
+		prep1.executeUpdate();
+		
+		con.commit();
+		
 	}finally {
 		try {
-			if (pre != null && prep != null)
+			if (pre != null && prep != null && prep1 != null)
 				pre.close();
 				prep.close();
+				prep1.close();
 		}
 		finally {
 			ConnectionPool.relaseConnection(con);
@@ -82,34 +97,7 @@ private static String TABELLA_NAME = "cliente";
 			}	
 				}
 	
-	public void registaIndirizzo(String via, String citta, String provincia, String cap, int idcliente) throws SQLException{
-		Connection con =null;
-		PreparedStatement prep= null;
-		String query = "INSERT INTO indirizzo_spedizione (via, citta, provincia, cap, id_cliente_indirizzo) VALUE (?, ?, ?, ?, ?);" ;
-		try {
-			con = ConnectionPool.getConnection();
-			prep = con.prepareStatement(query);
-			
-				prep.setString(1, via);
-				prep.setString(2, citta);
-				prep.setString(3, provincia);
-				prep.setString(4, cap);
-				prep.setInt(5,  idcliente);
-				
-				prep.executeUpdate();
-				
-				con.commit();
-				
-		}finally {
-			try {
-				if (prep != null)
-					prep.close();
-			}
-			finally {
-				ConnectionPool.relaseConnection(con);
-			}
-		}
-	}
+	
 
 	public IndirizzoSpedizioneBean cercaIndirizzo(int idcliente) throws SQLException{
 		Connection con = null;

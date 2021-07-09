@@ -16,15 +16,16 @@
 <h3>L'ordine da te effettuato è andato a buon fine <br>Grazie</h3>
 <br>
 <blockquote>
-<!-- 
+
 <% DatiAnagraficiBean dati = (DatiAnagraficiBean) request.getAttribute("telefono"); 
-IndirizzoSpedizioneBean  utentibean = (IndirizzoSpedizioneBean) request.getAttribute("indirizzo"); %>
+IndirizzoSpedizioneBean  utentibean = (IndirizzoSpedizioneBean) request.getAttribute("indirizzo"); 
+%>
 
 <%= dati.getNome() %> <%= dati.getCognome()%>,<br>
 <%= utentibean.getVia() %>, <br>
 <%= dati.getTelefono() %> <br>
 <%= utentibean.getCap() %>
-<%= utentibean.getCittà() %> (<%= utentibean.getProvincia() %>) <br> -->
+<%= utentibean.getCittà() %> (<%= utentibean.getProvincia() %>) <br>
 </blockquote>
 <br>
 <p>

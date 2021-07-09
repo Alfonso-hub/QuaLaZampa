@@ -20,9 +20,7 @@ import pacchetto.model.OrdineBean;
 import pacchetto.model.OrdiniModelDM;
 import pacchetto.model.UtentiModelDM;
 
-/**
- * Servlet implementation class ServletOrdini
- */
+
 @WebServlet("/Ordini")
 public class ServletOrdini extends HttpServlet {
 	private static final long serialVersionUID = 1L;

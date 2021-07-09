@@ -6,9 +6,7 @@ public interface UtentiDao {
 
 	public ClienteBean cercaUtente(String email, String password) throws SQLException;
 	
-	public void registraUtente(String nome, String cognome, String username, String email, String password, String telefono, String cf) throws SQLException;
-	
-	public void registaIndirizzo(String via, String citta, String provincia, String cap, int idcliente) throws SQLException;
+	public void registraUtente(String nome, String cognome, String username, String email, String password, String telefono, String cf, String via, String citta, String provincia, String cap) throws SQLException;
 
 	public IndirizzoSpedizioneBean cercaIndirizzo(int idcliente) throws SQLException;
 
