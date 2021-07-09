@@ -29,7 +29,9 @@
 
 <div class="col"> 
   <h3>Per conoscerci meglio</h3>
-  <p>Github: <a href="https://github.com/Alfonso-hub/QuaLaZampa.git">QuaLaZampa</a></p>
+  
+  <p><a href="ChiSiamo.jsp">Chi Siamo</a><br>
+  Github: <a href="https://github.com/Alfonso-hub/QuaLaZampa.git">QuaLaZampa</a></p>
   </div>
   </div>
 </footer>
