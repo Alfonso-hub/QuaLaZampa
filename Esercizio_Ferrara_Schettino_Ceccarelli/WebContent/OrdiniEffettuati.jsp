@@ -5,15 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="icon" type="image/x-icon" href="./image/icona_checkout.png">
-<link rel="stylesheet" type="text/css" href="./css/Carrello.css">
+<link rel="stylesheet" type="text/css" href="./css/Bottone.css">
 <title> Ordini effettuati </title>
 </head>
 <body>
 
+<%@ include file = "../fragments/header.jsp" %>
+<h1 align="center">Lista dei tuoi Ordini </h1>
 
-<h1 align="center"> Qui viene visualizzata la lista degli </h1>
-
-<table>
+<table class="f">
 <tr>
 <th> id_ordine </th>
 <th> prezzo_totale </th>
@@ -45,7 +45,8 @@ if (ord != null && ord.size() != 0){
 }
 %>
 
-</table>
-
+</table><br>
+<br>
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>

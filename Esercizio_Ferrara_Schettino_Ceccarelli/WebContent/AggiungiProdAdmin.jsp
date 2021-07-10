@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
 <link rel="stylesheet" type="text/css" href="./css/Login.css">
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
 <title> Aggiungi prodotto </title>

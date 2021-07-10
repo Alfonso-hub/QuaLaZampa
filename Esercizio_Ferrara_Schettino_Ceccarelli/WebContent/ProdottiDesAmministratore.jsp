@@ -14,7 +14,8 @@
 
 <%
 ProdottiBean prod= (ProdottiBean) request.getAttribute("des");
-%>
+String nome= prod.getPat().substring(prod.getPat().lastIndexOf("image")+6); %>
+<div align="center"><img src="./image/<%= nome %>" height="180" width="180"></div>
 
 <table>
 <tr>

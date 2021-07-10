@@ -14,7 +14,7 @@
 
 <%
 ProdottiBean prod= (ProdottiBean) request.getAttribute("descrizione");
-String nome = prod.getPat().substring(104);
+String nome = prod.getPat().substring(prod.getPat().lastIndexOf("image")+6);
 %>
 
 

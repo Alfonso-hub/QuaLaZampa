@@ -201,4 +201,29 @@ private static String TABELLA_NAME = "cliente";
 			return trovato;
 		}
 	
+	public int ricercaCliente(String nome) throws SQLException {
+		Connection con = null;
+		PreparedStatement prep = null;
+		String query = "SELECT id_cliente FROM " + TABELLA_NAME + " WHERE username = ? " ;
+		int id=0; 
+	try {
+		con = ConnectionPool.getConnection(); 
+		prep = con.prepareStatement(query);
+		prep.setString(1, nome);
+		
+		ResultSet result = prep.executeQuery();
+		while(result.next()) {
+			id= result.getInt("id_cliente");
+		}
+	}finally {
+		try {
+				if (prep != null)
+					prep.close();
+			}
+			finally {
+				ConnectionPool.relaseConnection(con);
+			}
+		}
+			return id;
+}
 					}

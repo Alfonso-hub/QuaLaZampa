@@ -10,22 +10,12 @@ body {
   box-sizing: border-box;
 }
 
-.row {
+.row1 {
   display: -ms-flexbox; 
   display: flex;
   -ms-flex-wrap: wrap; 
   flex-wrap: wrap;
-  margin: 0 -16px;
-}
-
-.col-25 {
-  -ms-flex: 25%; 
-  flex: 25%;
-}
-
-.col-50 {
-  -ms-flex: 50%;
-  flex: 50%;
+  margin: 0 -8px;
 }
 
 .col-75 {
@@ -33,24 +23,22 @@ body {
   flex: 75%;
 }
 
-.col-25,
-.col-50,
 .col-75 {
-  padding: 0 16px;
+  padding: 0 8px;
 }
 
-.container {
+.container1 {
   background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
+  padding: 5px 10px 12px 10px;
   border: 1px solid white;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 input[type=text] {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid lightgrey;
   border-radius: 3px;
 }
 
@@ -62,7 +50,7 @@ label {
 
 .btn {
   background-color: #04AA6D;
-  color: white;
+  color: black;
   padding: 12px;
   margin: 10px 0;
   border: none;
@@ -76,10 +64,6 @@ label {
   background-color: #45a049;
 }
 
-a {
-  color: #2196F3;
-}
-
 hr {
   border: 1px solid lightgrey;
 }
@@ -89,11 +73,8 @@ span.price {
   color: grey;
 }
 
-@media (max-width: 800px) {
-  .row {
+@media (max-width: 600px) {
+  .row1 {
     flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
   }
 }

@@ -45,7 +45,7 @@ Codice prodotto: <%= car.getCarrello().get(i).getId() %> <% request.setAttribute
 
 <form action="Controllo2" method="get">
 <input type="hidden" value="<%= car.getCarrello().get(i).getId() %>" name="nascosto">
-Quantità desiderata: <input type="number" name="scelta" min="1" max="<%= car.getCarrello().get(i).getQuantita()%>" >
+Quantità desiderata: <input type="number" name="scelta" value="1" min="1" max="<%= car.getCarrello().get(i).getQuantita()%>" >
 <input type="submit"  value="Aggiorna">
 </form>
 <br>

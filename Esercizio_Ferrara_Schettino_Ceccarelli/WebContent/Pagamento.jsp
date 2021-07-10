@@ -12,25 +12,43 @@
 
 <%@ include file = "../fragments/header.jsp" %>
 <h1>Pagamento</h1>
-<div class="row">
+<div class="row11">
+<div class="col-75">
+    <div class="container1">
+      <h4>Carrello</h4>
+      <% Carrello car= (Carrello) request.getSession().getAttribute("carrello");
+       		for(int i=0;i<car.getDimensione();i++){
+       			
+       
+       %>
+       <p><%= car.getCarrello().get(i).getNome() %> <span class="price" style="color:black"><%= car.getCarrello().get(i).getTotPrezzo() %>&euro;</span> </p>
+       <%}%>
+       
+      <hr>
+      
+      <p>Totale <span class="price" style="color:black"> <b><%= String.format("%.2f",car.calcolaSpesa())  %>&euro;</b></span></p>
+    </div>
+  </div></div>
+  <br>
+<div class="row1">
   <div class="col-75">
-    <div class="container">
+    <div class="container1">
       <form action="Pagamento" method="get">
-          <div class="col-50">
             <h3>Pagamento</h3>
-            <label for="fname">Accettazione carta di Credito</label>
+            <label>Accettazione carta di Credito</label>
             
            <label>Numero Carta Credito</label>
             <input type="text" name="cardnumber" placeholder="1111-2222-3333-4444">
            
                 <label>CVV</label>
-                <input type="text" name="cvv" placeholder="352">
-              </div>
+                <input type="text" name="cvv" placeholder="987">
+              
           
-        <label>
-          <input type="radio" name="sameadr" onclick="elimina()" value="vecchioIndirizzo">Indirizzo inserito nel lato registrazione
-        </label>
-        
+        <label>Scegli l'indirizzo di spedizione.<br>
+        *Se l'indirizzo inserito all'atto della registrazione è valido selezione la prima opzione 'Indirizzo di Registrazione'<br>
+        altrimenti seleziona 'Nuovo indirizzo spedizione' per registrare il nuovo indirizzo di spedizione.<br></label>
+          <input type="radio" name="sameadr" onclick="elimina()" value="vecchioIndirizzo">Indirizzo di Registrazione 
+        <br>     
         <script>
         function elimina(){
         	var container= document.getElementById("divisore");
@@ -53,10 +71,8 @@
         }
         </script>
         
-        <label>
-        	<input type="radio" name="sameadr" onclick="aggiungi()" value="nuovoIndirizzo"> Nuovo indirizzo spedizione
-        </label>
-        
+        	<input type="radio" name="sameadr" onclick="aggiungi()" value="nuovoIndirizzo">Nuovo indirizzo spedizione
+        <br><br>
         <div id="divisore"></div>
         
         <script> function aggiungi(){
@@ -157,24 +173,8 @@
       </form>
       </div>
     </div>
-    
-  <div class="col-25">
-    <div class="container">
-      <h4>Carrello</h4>
-      <% Carrello car= (Carrello) request.getSession().getAttribute("carrello");
-       		for(int i=0;i<car.getDimensione();i++){
-       			
-       
-       %>
-       <p> <%= car.getCarrello().get(i).getNome() %> prezzo: <%= car.getCarrello().get(i).getTotPrezzo() %> </p>
-       <%}%>
-       
-      <hr>
-      
-      <p>Totale <b><%= String.format("%.2f",car.calcolaSpesa())  %></b></p>
-    </div>
-  </div>
 </div>
-
+<br><br> 
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>

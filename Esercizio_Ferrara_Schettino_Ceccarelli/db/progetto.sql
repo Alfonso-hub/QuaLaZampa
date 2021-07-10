@@ -24,7 +24,7 @@ create table cliente (
 username varchar(25) not null,
 id_cliente int primary key auto_increment,
 e_mail varchar (25) not null,
-password varchar (50) not0 null,
+password varchar (50) not null,
 amministratore enum ("SI", "NO") not null
 );
 

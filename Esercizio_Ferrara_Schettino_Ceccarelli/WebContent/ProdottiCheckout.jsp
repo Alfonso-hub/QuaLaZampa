@@ -5,44 +5,45 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="icon" type="image/x-icon" href="./image/icona_checkout.png">
-<link rel="stylesheet" type="text/css" href="./css/Carrello.css">
+<link rel="stylesheet" type="text/css" href="./css/Bottone.css">
 <title> Checkout </title>
 </head>
 <body>
 <%@ include file = "../fragments/header.jsp" %>
-
-<h1> Grazie per aver utilizzato il nostro sito </h1>
-
+<div align="center">
+<h1> Grazie per aver scelto QuaLaZampa </h1>
 <h3>L'ordine da te effettuato è andato a buon fine <br>Grazie</h3>
-<br>
-<blockquote>
+
 
 <% DatiAnagraficiBean dati = (DatiAnagraficiBean) request.getAttribute("telefono"); 
 IndirizzoSpedizioneBean  utentibean = (IndirizzoSpedizioneBean) request.getAttribute("indirizzo"); 
 %>
-
+<blockquote><b>
 <%= dati.getNome() %> <%= dati.getCognome()%>,<br>
 <%= utentibean.getVia() %>, <br>
 <%= dati.getTelefono() %> <br>
 <%= utentibean.getCap() %>
 <%= utentibean.getCittà() %> (<%= utentibean.getProvincia() %>) <br>
-</blockquote>
-<br>
-<p>
-Gli sviluppatori del sito: Ferrara Miriam, Schettino Alfonso e Ceccarelli Sabrina la ringraziano per aver scelto il sito Qua La Zampa creato da noi.
+</b></blockquote>
+
+<p>Gli sviluppatori di QuaLaZampa:<br>
+Ferrara Miriam, Schettino Alfonso, Ceccarelli Sabrina<br> 
+la ringraziano per aver scelto QuaLaZampa.
 <br>Speriamo di aver soddisfatto tutte le richieste.
-<br>Torni presto ad acquistare!
-</p>
-
-<a href="ProdottiCarrello.jsp">
-<input type="button" value="Visualizza il carrello">
-</a> <br><br>
-<a href="ProdottiView.jsp">
-<input type="button" value="Torna alla lista prodotti">
-</a> <br><br>
-<a href="Ordini?action=ordiniEffettuati">
-<input type="button" value="Visualizza tabella ordini effettuati">
+<br>Torni presto ad acquistare!</p>
+</div>
+<div class="container" align="center">
+<a style="color: white" href="ProdottiCarrello.jsp">
+<input type="button" class="small" value="Visualizza il carrello">
 </a>
-
+<a style="color: white" href="ProdottiView.jsp">
+<input type="button" class="small" value="Torna alla lista prodotti">
+</a>
+<a style="color: white" href="Ordini?action=ordiniEffettuati">
+<input type="button" class="small" value="Visualizza Ordini effettuati">
+</a>
+</div>
+<br><br>
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>

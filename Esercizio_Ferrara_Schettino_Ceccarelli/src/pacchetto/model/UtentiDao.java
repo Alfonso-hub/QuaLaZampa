@@ -13,4 +13,6 @@ public interface UtentiDao {
 	public DatiAnagraficiBean cercadati(int idcli) throws SQLException;
 	
 	public boolean cercaAmministratore(String email, String password) throws SQLException;
+
+	public int ricercaCliente(String nome) throws SQLException;
 }

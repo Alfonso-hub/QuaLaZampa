@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
 <title> Qui puoi controllare la lista ordini </title>
 </head>
 <body>
