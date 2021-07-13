@@ -42,8 +42,8 @@ foreign key (id_cliente_dati) references cliente (id_cliente) ON DELETE SET NULL
 );
 
 insert into dati_anagrafici values ("Luigi", "Greco", "081123456", "LG15P9KUP", 1);
-insert into dati_anagrafici values ("Claudia", "Rossi", "389557419", "CR145PK79S9", 2);
-insert into dati_anagrafici values ("Giorgia", "Verdi", "0818745983", "TV45GT74T7", 3);
+insert into dati_anagrafici values ("Sabrina", "Ceccarelli", "389557419", "CR145PK79S9", 2);
+insert into dati_anagrafici values ("Miriam", "Ferrara", "0818745983", "TV45GT74T7", 3);
 
 create table indirizzo_spedizione (
 via varchar(50) not null,
@@ -71,6 +71,12 @@ prezzo_totale float not null,
 stato_ordine varchar (25) not null,
 data_ordine date not null
 );
+
+insert into ordine (prezzo_totale, stato_ordine, data_ordine) values (15.69, "acquistato", '2021-07-01');
+insert into ordine (prezzo_totale, stato_ordine, data_ordine) values (15.69, "acquistato", '2021-08-01');
+insert into ordine (prezzo_totale, stato_ordine, data_ordine) values (15.69, "acquistato", '2021-09-01');
+insert into ordine (prezzo_totale, stato_ordine, data_ordine) values (15.69, "acquistato", '2021-10-05');
+insert into ordine (prezzo_totale, stato_ordine, data_ordine) values (15.69, "acquistato", '2021-11-10');
 
 create table effettua (
 id_cliente_effettua int,

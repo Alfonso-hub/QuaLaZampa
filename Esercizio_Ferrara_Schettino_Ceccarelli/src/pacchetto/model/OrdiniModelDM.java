@@ -336,5 +336,44 @@ public class OrdiniModelDM implements OrdiniModel {
 			}
 		}
 	}
+	
+	public ArrayList<OrdineBean> cercaOrdineData (Date data1, Date data2) throws SQLException {
+	
+		Connection con= null;
+		PreparedStatement prep= null;
+		String query= "SELECT * FROM ordine WHERE data_ordine >= ? AND data_ordine <= ?";
+		ArrayList<OrdineBean> ordini= new ArrayList<OrdineBean>();
+		
+		try {
+			con= ConnectionPool.getConnection();
+			prep= con.prepareStatement(query);
+			prep.setDate(1, data1);
+			prep.setDate(2, data2);
+			ResultSet res= prep.executeQuery();
+			
+			while (res.next()) {
+				OrdineBean bean= new OrdineBean();
+				bean.setIdOrdine(res.getInt("id_ordine"));
+				bean.setPrezzoTot(res.getFloat("prezzo_totale"));
+				bean.setStatoOrdine(res.getString("stato_ordine"));
+				bean.setDataOrdine(res.getDate("data_ordine"));
+				
+				ordini.add(bean);
+			}
+		}
+		finally {
+			try {
+				if (prep != null) {
+					prep.close();
+				}
+			}
+			finally {
+				ConnectionPool.relaseConnection(con);
+			}
+		}
+		
+		return ordini;
+		
+	}
 
 }

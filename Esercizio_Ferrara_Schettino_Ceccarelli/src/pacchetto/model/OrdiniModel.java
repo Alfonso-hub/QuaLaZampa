@@ -16,4 +16,6 @@ public interface OrdiniModel {
 	
 	public void effettuaPagamento (int idCliente, String metodoPagamento, Date data, String infoMetodoSpedizione) throws SQLException;
 	
+	public ArrayList<OrdineBean> cercaOrdineData (Date data1, Date data2) throws SQLException;
+	
 }

@@ -21,7 +21,7 @@
        			
        
        %>
-       <p><%= car.getCarrello().get(i).getNome() %> <span class="price" style="color:black"><%= car.getCarrello().get(i).getTotPrezzo() %>&euro;</span> </p>
+       <p><%= car.getCarrello().get(i).getNome() %><span class="price" style="color:black"><%=car.getCarrello().get(i).getQuantitaDesiderata()%> * <%= String.format("%.2f", car.getCarrello().get(i).getPrezzo()) %>&euro;</span> </p>
        <%}%>
        
       <hr>

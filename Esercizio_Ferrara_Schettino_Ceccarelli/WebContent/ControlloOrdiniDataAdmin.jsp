@@ -9,7 +9,14 @@
 </head>
 <body>
 <%@ include file = "../fragments/headerAmministratore.jsp" %>
-<h1> Qui puoi controllare la lista ordini inserendo una data </h1>
+<h1> Qui puoi controllare la lista ordini inserendo due date </h1>
+
+<form action="CercaClienteData" method="post">
+Inserisci la data di inizio: <input type="date" name="dataInizio"> <br>
+Inserisci la data di fine: <input type="date" name="dataFine">
+
+<input type="submit" value="Cerca">
+</form>
 
 </body>
 </html>
