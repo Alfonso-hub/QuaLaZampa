@@ -27,6 +27,13 @@
 <input type="text" name="descrizioneProd" placeholder="Inserisci la descrizione del prodotto" size="40px" required> <br>
 <label><b>Prezzo base:</b></label> <br>
 <input type="text" name="prezzoBaseProd" placeholder="Inserisci il prezzo base del prodotto" size="40px" required> <br>
+<label><b>Tipologia prodotto:</b></label>
+<select name="tipologia">
+<option value="cane"> Cane </option>
+<option value="gatto"> Gatto </option>
+<option value="animali piccola taglia"> Animali piccola taglia </option>
+<option value="uccelli"> Uccelli </option>
+</select> <br><br>
 <label><b>Aggiungi un immagine:</b></label><br>
 <input type="file"  name="fileProd" accept=".jpg, .jpeg, .png"> <br> <br>
 <input type="submit" class="login" value="Conferma aggiunta">
