@@ -39,17 +39,16 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 		
 		Part part= request.getPart("fileProd");
 		String fileName= extractFileName (part);
-		System.out.println("Lunghezza nome " + fileName.length());
-		System.out.println("nome " + fileName);
-		/*Alfonso
-		String savePath= "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
-		*/
-		//Miriam
-		String savePath= "C:\\Users\\Utente\\git\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
 		
-		/*Sabrina
-		String savePath= "C:\\Users\\Utente\\git\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
-		*/
+		//Alfonso
+		String savePath= "C:\\Users\\utente\\Desktop\\TSW progetto\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
+		
+		//Miriam
+		//String savePath= "C:\\Users\\Utente\\git\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
+		
+		//Sabrina
+		//String savePath= "C:\\Users\\Utente\\git\\QuaLaZampa\\Esercizio_Ferrara_Schettino_Ceccarelli\\WebContent\\image\\" + fileName;
+		
 		part.write(savePath + File.separator);
 		
 		String nomeProd= request.getParameter("nomeProd");
@@ -58,7 +57,8 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 		float ivaProd= Float.parseFloat(request.getParameter("ivaProd"));
 		String descrizioneProd= request.getParameter("descrizioneProd");
 		float prezzoBaseProd= Float.parseFloat(request.getParameter("prezzoBaseProd"));
-		
+		String tipologia= request.getParameter("tipologia");
+				
 		ProdottiBean prod= new ProdottiBean ();
 		
 		prod.setNome(nomeProd);
@@ -72,7 +72,7 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 		ProdottiModelDM prodotti= new ProdottiModelDM ();
 		
 		try {
-			prodotti.doSave(prod);
+			prodotti.doSave(prod, tipologia);
 			
 			RequestDispatcher dis= request.getRequestDispatcher("PageAmministratore.jsp");
 			dis.forward(request, response);

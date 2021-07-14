@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public interface ProdottiModel {
 	
-	public void doSave (ProdottiBean bean) throws SQLException;
+	public void doSave (ProdottiBean bean, String tipo) throws SQLException;
 	
 	public ProdottiBean doRetriveByKey (int code) throws SQLException;
 	
@@ -15,4 +15,6 @@ public interface ProdottiModel {
 	
 	public void doDelete(int id) throws SQLException;
 
+	public ArrayList<ProdottiBean> cercaProdottoTipo (String tipo) throws SQLException;
+	
 }
