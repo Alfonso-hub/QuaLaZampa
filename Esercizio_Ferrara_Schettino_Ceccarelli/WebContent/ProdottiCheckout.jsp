@@ -20,10 +20,6 @@ IndirizzoSpedizioneBean  utentibean = (IndirizzoSpedizioneBean) request.getAttri
 %>
 <blockquote><b>
 <%= dati.getNome() %> <%= dati.getCognome()%>,<br>
-<%= utentibean.getVia() %>, <br>
-<%= dati.getTelefono() %> <br>
-<%= utentibean.getCap() %>
-<%= utentibean.getCittà() %> (<%= utentibean.getProvincia() %>) <br>
 </b></blockquote>
 
 <p>Gli sviluppatori di QuaLaZampa:<br>

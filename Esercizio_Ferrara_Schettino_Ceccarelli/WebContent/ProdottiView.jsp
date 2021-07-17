@@ -23,6 +23,7 @@ if (prod == null){
 }
 %>
 <%@ include file = "../fragments/header.jsp" %>
+
 <div class="content">
   <img class="mySlides"src="./image/Benvenuto.png">
   <img class="mySlides" src="./image/0scorrimento.jpg">
@@ -30,7 +31,6 @@ if (prod == null){
   <img class="mySlides" src="./image/2scorrimento.jpeg">
   <img class="mySlides" src="./image/3scorrimento.jpeg">
   <img class="mySlides" src="./image/4scorrimento.jpeg">
-<script type="text/javascript" src="./resources/imageScorrimento.js"></script>
 </div>
 
 <%@ include file="../fragments/menu.jsp" %>
@@ -71,5 +71,21 @@ Codice Prodotto: <%= ben.getId() %><br>
 </div>
 <br><br>
 <%@ include file="../fragments/footer.jsp" %>
+<script type="text/javascript">
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000);
+}
+</script>
 </body>
 </html>
