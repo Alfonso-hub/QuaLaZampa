@@ -1,6 +1,7 @@
 package pacchetto.control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,37 +17,31 @@ import pacchetto.model.UtentiModelDM;
 @WebServlet("/Login")
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  static UtentiModelDM user = new UtentiModelDM();
+  UtentiModelDM user = new UtentiModelDM();
     
   public ServletLogin() {
         super();
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		UtentiModelDM user = new UtentiModelDM();
 		String email = request.getParameter("email");
 		String pw = request.getParameter("password");
+		PrintWriter out= response.getWriter();
 		
 		try{
 				ClienteBean cerca = user.cercaUtente(email, pw);
-				if(cerca.getId() != -1) {
-					if(user.cercaAmministratore(email, pw)) {
-					request.getSession().setAttribute("Amministratore", true);
-					RequestDispatcher dis = request.getRequestDispatcher("/ControlloAmministratore.jsp");
-					dis.forward(request, response);
-					}
+				if((cerca.getId() != -1) && (user.cercaAmministratore(email, pw))) {
 					request.getSession().setAttribute("accedi", cerca);
-					RequestDispatcher dis =  request.getRequestDispatcher("/ProdottiView.jsp");
-					dis.forward(request, response);
-					
-				}else {
-					request.getSession().setAttribute("accedi", null);
-					
-					RequestDispatcher dis =  request.getRequestDispatcher("/PageLogin.jsp");
-					dis.forward(request, response);
+					out.print("Admin");
+					}
+				if((cerca.getId() != -1) && !(user.cercaAmministratore(email, pw))) {
+					request.getSession().setAttribute("accedi", cerca);
+					out.print("Utente");
 				}
-				
-				
-			}catch(Exception e) {
+			}
+		catch(Exception e) {
 			System.out.println("Error ServletLogin: " + e.getMessage());	
 			}
 	}

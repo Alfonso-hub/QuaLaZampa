@@ -1,5 +1,12 @@
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
 <style>
+.icone1{
+	margin-top:20px;
+	margin-right:50px;
+	float:right;
+	width:40px;
+	height:40px;
+}
 .dropbtn1 {
     color: black;
     padding: 1px;
@@ -16,7 +23,7 @@
 .dropdown-content1 {
   display: none;
   position: absolute;
-  right: 50px;
+  right: 20px;
    top: 60px;
   background-color: #ffd963;
   z-index: 1;
@@ -42,9 +49,9 @@
 <div class="header">
 <a href="ProdottiView.jsp"><img src="./image/logo.png" class="logo" width="110" height="110"></a>
 
-<div class="dropdown1" style="float:right;">
 <a href="ProdottiCarrello.jsp"><img src="./image/icona_carrello.png" class="icone"></a>
-<a><img src="./image/account.png" class="icone"></a>
+<div class="dropdown1" style="float:right;">
+<a><img src="./image/account.png" class="icone1"></a>
 <div class="dropdown-content1">
 	  <a href="AreaUtente">AreaUtente</a>
       <a href="Logout">Logout</a>

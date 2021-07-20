@@ -13,6 +13,18 @@
 <%@ include file = "../fragments/header.jsp" %>
 <h1 align="center">Lista dei tuoi Ordini </h1>
 
+<%
+ArrayList<?> ord= (ArrayList<?>) request.getAttribute("ordiniEffettuati");
+if (ord.size() == 0){
+%>
+
+<h3 align="center"> Spiacente ma non hai ancora effettuato alcun ordine </h3>
+
+<%
+}
+else {
+%>
+
 <table class="f">
 <tr>
 <th> id_ordine </th>
@@ -24,8 +36,6 @@
 
 
 <%
-ArrayList<?> ord= (ArrayList<?>) request.getAttribute("ordiniEffettuati");
-
 if (ord != null && ord.size() != 0){
 	Iterator<?> it= ord.iterator();
 	while(it.hasNext()){
@@ -41,6 +51,7 @@ if (ord != null && ord.size() != 0){
 </tr>
 
 <%
+}
 }
 }
 %>

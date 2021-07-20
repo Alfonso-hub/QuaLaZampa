@@ -7,6 +7,7 @@
 <link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
 <link rel="stylesheet" type="text/css" href="./css/Login.css">
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
+<script src="./resources/Ajax.js"></script>
 
 <title>Login</title>
 </head>
@@ -15,17 +16,18 @@
 <img src="./image/logo.png" class="img-logo" width="200" height="200" >
 <div class="container">
 <h1 align="center">Accedi</h1>
-<form action="Login"  method="post" >
+
 <p>Inserisci i tuoi dati per Accedere</p><br>
 
 <label><b>Email:</b></label><br>
-<input type="text" name="email" placeholder="Inserisci email" required>
+<input type="text" name="email" id="email1" placeholder="Inserisci email" required>
 
 <label><b>Password:</b></label><br> 
-<input type="password" name="password" placeholder="Inserisci password" required>
+<input type="password" name="password" id="password1" placeholder="Inserisci password" required>
 
-<input type="submit" class="login" value="Accedi"><br>
-</form>
+<input type="button" class="login" id="submit" value="Accedi"><br>
+
+<script src="./resources/ajaxLogin.js"></script>
 
 <br>
 <div class="clicca">

@@ -8,7 +8,7 @@
 <link rel="icon" type="image/x-icon" href="./image/icona_catalogo.png">
 <link rel="stylesheet" type="text/css" href="./css/Struttura.css">
 <link rel="stylesheet" type="text/css" href="./css/Bottone.css">
-
+<script src="./resources/Ajax.js"></script>
 
 <title>Catalogo</title>
 </head>
@@ -32,6 +32,8 @@ if (prod == null){
   <img class="mySlides" src="./image/3scorrimento.jpeg">
   <img class="mySlides" src="./image/4scorrimento.jpeg">
 </div>
+
+<script src="./resources/imageScorrimento.js"></script>
 
 <%@ include file="../fragments/menu.jsp" %>
 <h1> Catalogo Prodotti </h1>
@@ -71,21 +73,5 @@ Codice Prodotto: <%= ben.getId() %><br>
 </div>
 <br><br>
 <%@ include file="../fragments/footer.jsp" %>
-<script type="text/javascript">
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 2000);
-}
-</script>
 </body>
 </html>

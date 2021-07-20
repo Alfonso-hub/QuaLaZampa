@@ -34,4 +34,6 @@
   Github: <a style="color:black" href="https://github.com/Alfonso-hub/QuaLaZampa.git">QuaLaZampa</a></p>
   </div>
   </div>
+  
+  <p> &#169; QuaLaZampa 2021</p>
 </footer>

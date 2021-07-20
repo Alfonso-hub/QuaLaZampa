@@ -1,6 +1,7 @@
 package pacchetto.control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -30,32 +31,29 @@ public class ServletRegistrazione extends HttpServlet {
 		String cognome= request.getParameter("cognome");
 		String username= request.getParameter("username");
 		String email= request.getParameter("email");
-		String newPassword= request.getParameter("new password");
-		String ripPassword= request.getParameter("rip password");
+		String newPassword= request.getParameter("password");
+		String ripPassword= request.getParameter("ripPassword");
 		String telefono= request.getParameter("telefono");
 		String cf =request.getParameter("codice");
 		String provincia= request.getParameter("provincia");
 		String cap= request.getParameter("cap");
 		String citta= request.getParameter("citta");
 		String via= request.getParameter("via");
-		String redirect= "";
+		PrintWriter out= response.getWriter();
 		
 		if (newPassword.equals(ripPassword)) {
 		try {
 			user.registraUtente(nome, cognome, username, email, ripPassword, telefono, cf, via, citta, provincia, cap);
 			ClienteBean client = user.cercaUtente(email, ripPassword) ;
 			request.getSession().setAttribute("accedi", client);
-			redirect= "/ProdottiView.jsp";
+			out.print("ProdottiView.jsp");
 		} catch (SQLException e) {
 			System.out.println ("Errore nella registrazione: " + e.getMessage());
 		}
 		}
 		else {
 			request.getSession().setAttribute("accedi", false);
-			redirect= "/LoginRegistrazione.jsp";
 		}
-			
-		response.sendRedirect(request.getContextPath() + redirect);
 		
 	}
 

@@ -31,6 +31,6 @@ IndirizzoSpedizioneBean  utentibean = (IndirizzoSpedizioneBean) request.getAttri
 </a></div>
 <br><br>
 
-
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>
