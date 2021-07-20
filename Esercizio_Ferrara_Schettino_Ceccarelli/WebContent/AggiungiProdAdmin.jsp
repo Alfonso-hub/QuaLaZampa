@@ -12,8 +12,8 @@
 <body>
 <%@ include file = "../fragments/headerAmministratore.jsp" %>
 <h1>Aggiungi Prodotti</h1>
-<p>Aggiungi le informazioni richieste per aggiungere un nuovo prodotto al catalogo </p>
 <div class="container">
+<p>Aggiungi le informazioni richieste per aggiungere un nuovo prodotto al catalogo </p>
 <form action="AggiungiProdAdmin" method="post" enctype="multipart/form-data">
 <label><b>Nome prodotto:</b></label> <br>
 <input type="text" name="nomeProd" placeholder="Inserisci il nome del prodotto"  size="40px" required> <br>
@@ -33,9 +33,11 @@
 <option value="gatto"> Gatto </option>
 <option value="animali piccola taglia"> Animali piccola taglia </option>
 <option value="uccelli"> Uccelli </option>
-</select> <br><br>
-<label><b>Aggiungi un immagine:</b></label><br>
+</select> 
+<div style="float:right;">
+<label><b> Aggiungi un immagine:</b></label>
 <input type="file"  name="fileProd" accept=".jpg, .jpeg, .png"> <br> <br>
+</div>
 <input type="submit" class="login" value="Conferma aggiunta">
 </form>
 </div>

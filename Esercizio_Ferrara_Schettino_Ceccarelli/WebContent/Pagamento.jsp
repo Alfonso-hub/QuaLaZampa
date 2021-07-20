@@ -17,8 +17,7 @@
     <div class="container1">
       <h4>Carrello</h4>
       <% Carrello car= (Carrello) request.getSession().getAttribute("carrello");
-       		for(int i=0;i<car.getDimensione();i++){
-       			
+       		for(int i=0;i<car.getDimensione();i++){	
        
        %>
        <p><%= car.getCarrello().get(i).getNome() %><span class="price" style="color:black"><%=car.getCarrello().get(i).getQuantitaDesiderata()%> * <%= String.format("%.2f", car.getCarrello().get(i).getPrezzo()) %>&euro;</span> </p>

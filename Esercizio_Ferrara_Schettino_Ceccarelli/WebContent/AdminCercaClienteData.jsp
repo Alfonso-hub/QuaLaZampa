@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
+<link rel="stylesheet" type="text/css" href="./css/Bottone.css">
+<title>lista ordini Data </title>
 </head>
 <body>
-
-<h1> Visualizzazione ordini per intervallo di data </h1>
+<%@ include file = "../fragments/headerAmministratore.jsp" %>
+<h1 align="center">Gli ordini effettuati trovati per Data sono:</h1>
 
 <% 
 ArrayList<?> utente = (ArrayList<?>) request.getAttribute("ordine");
@@ -21,11 +23,11 @@ if (utente.size() == 0) {
 }
 else {
 %>
-
+<div class="f">
 <table>
 <tr>
 <th> Id dell'ordine </th>
-<th> Stao dell'ordine </th>
+<th> Stato dell'ordine </th>
 <th> Data dell'ordine </th>
 <th> Prezzo dell'ordine </th> 
 </tr>
@@ -41,7 +43,7 @@ if (utente != null && utente.size() != 0) {
 <td> <%= ben.getIdOrdine() %> </td>
 <td> <%= ben.getStatoOrdine() %> </td>
 <td> <%= ben.getDataOrdine() %> </td>
-<td> <%= ben.getPrezzoTot() %> </td>
+<td> <%= String.format("%.2f",ben.getPrezzoTot()) %> </td>
 </tr>
 
 <%
@@ -51,6 +53,6 @@ if (utente != null && utente.size() != 0) {
 %>
 
 </table>
-
+</div>
 </body>
 </html>

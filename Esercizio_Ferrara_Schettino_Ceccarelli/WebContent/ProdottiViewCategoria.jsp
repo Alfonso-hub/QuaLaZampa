@@ -19,15 +19,6 @@ ArrayList<?> prod= (ArrayList<?>) request.getAttribute("prodotti");
 %>
 
 <%@ include file = "../fragments/header.jsp" %>
-<div class="content">
-  <img class="mySlides"src="./image/Benvenuto.png">
-  <img class="mySlides" src="./image/0scorrimento.jpg">
-  <img class="mySlides" src="./image/1scorrimento.jpeg">
-  <img class="mySlides" src="./image/2scorrimento.jpeg">
-  <img class="mySlides" src="./image/3scorrimento.jpeg">
-  <img class="mySlides" src="./image/4scorrimento.jpeg">
-<script type="text/javascript" src="./resources/imageScorrimento.js"></script>
-</div>
 
 <%@ include file="../fragments/menu.jsp" %>
 <h1> Catalogo Prodotti </h1>
@@ -48,7 +39,7 @@ if (prod != null && prod.size() != 0) {
 <br><b> <%= ben.getNome() %> </b></p>
 <p>Descrizione:<br> <%= ben.getDescrizione() %><br>
 Codice Prodotto: <%= ben.getId() %><br>
-<b>Prezzo: <%= ben.getPrezzo() %> &euro; </b> </p>
+<b>Prezzo: <%= String.format("%.2f", ben.getPrezzo()) %>&euro;</b></p>
  
  <p class="card button1">
 <a href="Controllo?action=dettagli&id=<%= ben.getId() %>">

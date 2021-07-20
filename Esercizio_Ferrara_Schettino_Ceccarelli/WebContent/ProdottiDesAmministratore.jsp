@@ -33,7 +33,7 @@ String nome= prod.getPat().substring(prod.getPat().lastIndexOf("image")+6); %>
 <td> <%= prod.getDescrizione() %> </td> 
 <td> <%= prod.getDisponibilita() %> </td>
 <td> <%= prod.getQuantita() %> </td>
-<td> <%= prod.getPrezzo() %> </td>
+<td> <%= String.format("%.2f",prod.getPrezzo()) %> </td>
 </tr>
 
 </table>

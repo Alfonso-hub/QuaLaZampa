@@ -41,16 +41,16 @@ else {
 <br>
 <b><%= car.getCarrello().get(i).getNome() %> <br>
 Codice prodotto: <%= car.getCarrello().get(i).getId() %> <% request.setAttribute("iden", car.getCarrello().get(i).getId()); %></b><br>
-<b>Prezzo singolo prodotto: <%= car.getCarrello().get(i).getPrezzo() %>&euro;</b> <br>
+<b>Prezzo singolo prodotto: <%= String.format("%.2f",car.getCarrello().get(i).getPrezzo()) %>&euro;</b> <br>
 
 <form action="Controllo2" method="get">
 <input type="hidden" value="<%= car.getCarrello().get(i).getId() %>" name="nascosto">
 Quantità desiderata: <input type="number" name="scelta" value="1" min="1" max="<%= car.getCarrello().get(i).getQuantita()%>" >
-<input type="submit"  value="Aggiorna">
+<input type="submit"  value="Aggiorna"  style="background-color: #ffd963; text-align: center;color:black; font-weight:bold; border: 2px solid black;">
 </form>
 <br>
 
-<b>Prezzo totale: <%= car.getCarrello().get(i).getTotPrezzo() %>&euro;</b>
+<b>Prezzo totale: <%= String.format("%.2f",car.getCarrello().get(i).getTotPrezzo()) %>&euro;</b>
 <br>
 
 <form action="EliminaProdotto" method="get">

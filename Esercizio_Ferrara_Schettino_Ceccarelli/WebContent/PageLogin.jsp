@@ -29,9 +29,9 @@
 
 <br>
 <div class="clicca">
-Se non sei ancora Registrato? <a href="LoginRegistrazione.jsp"><input type="button" value="clicca qui"></a>
+Se non sei ancora Registrato? <a href="LoginRegistrazione.jsp"><input type="button" value="clicca qui" style="background-color: #ffd963; text-align: center;color:black; font-weight:bold; border: 2px solid black;"></a>
 <br><br>
-Per procedere come ospite invece <a href="ProdottiView.jsp"><input type="button" value="clicca qui"></a>
+Per procedere come ospite invece <a href="ProdottiView.jsp"><input type="button" value="clicca qui" style="background-color: #ffd963; text-align: center;color:black; font-weight:bold; border: 2px solid black;"></a>
 </div>
 </div>
 

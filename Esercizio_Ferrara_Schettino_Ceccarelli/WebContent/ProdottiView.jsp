@@ -52,7 +52,7 @@ if (prod != null && prod.size() != 0) {
 <br><b> <%= ben.getNome() %> </b></p>
 <p>Descrizione:<br> <%= ben.getDescrizione() %><br>
 Codice Prodotto: <%= ben.getId() %><br>
-<b>Prezzo: <%= ben.getPrezzo() %> &euro; </b> </p>
+<b>Prezzo: <%= String.format("%.2f", ben.getPrezzo()) %> &euro; </b> </p>
  
  <p class="card button1">
 <a href="Controllo?action=dettagli&id=<%= ben.getId() %>">

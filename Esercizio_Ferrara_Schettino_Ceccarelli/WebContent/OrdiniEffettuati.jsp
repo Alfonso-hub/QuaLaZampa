@@ -37,7 +37,7 @@ if (ord != null && ord.size() != 0){
 <td> <%= or.getPrezzoTot() %> </td>
 <td> <%= or.getStatoOrdine() %> </td>
 <td> <%= or.getDataOrdine() %> </td>
-<td> <a href="InformazioniProdotto?id=<%=or.getIdOrdine() %>" ><input type="button" value="dettaglio">  </a>
+<td> <a href="InformazioniProdotto?id=<%=or.getIdOrdine() %>" ><input type="button" value="dettaglio" style="background-color: #ffd963;text-align: center;color: black;font-weight:bold;padding: 8px;">  </a>
 </tr>
 
 <%

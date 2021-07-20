@@ -27,7 +27,7 @@ String nome = prod.getPat().substring(prod.getPat().lastIndexOf("image")+6);
 Disponibilita: <%= prod.getDisponibilita() %><br>
 Quantita: <%= prod.getQuantita() %><br>
 Codice Prodotto: <%= prod.getId() %><br>
-<b>Prezzo: <%= prod.getPrezzo() %> &euro; </b> </p>
+<b>Prezzo: <%= String.format("%.2f",prod.getPrezzo()) %> &euro; </b> </p>
 </div>
 
 <div class="container"  align="center">

@@ -12,15 +12,15 @@
 <%@ include file = "../fragments/header.jsp" %>
 <div align="center">
 <h1> Grazie per aver scelto QuaLaZampa </h1>
-<h3>L'ordine da te effettuato è andato a buon fine <br>Grazie</h3>
+<h3>L'ordine da te effettuato è andato a buon fine</h3>
 
 
 <% DatiAnagraficiBean dati = (DatiAnagraficiBean) request.getAttribute("telefono"); 
 IndirizzoSpedizioneBean  utentibean = (IndirizzoSpedizioneBean) request.getAttribute("indirizzo"); 
 %>
-<blockquote><b>
-<%= dati.getNome() %> <%= dati.getCognome()%>,<br>
-</b></blockquote>
+<h3><b>
+Grazie <%= dati.getNome() %> <%= dati.getCognome() %>
+</b></h3>
 
 <p>Gli sviluppatori di QuaLaZampa:<br>
 Ferrara Miriam, Schettino Alfonso, Ceccarelli Sabrina<br> 

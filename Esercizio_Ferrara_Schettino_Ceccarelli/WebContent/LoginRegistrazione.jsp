@@ -57,7 +57,7 @@
 </form>
 <br>
 <div class="clicca">
-Hai gia un account? <a href="PageLogin.jsp"><input type="button" value="clicca qui"></a>
+Hai gia un account? <a href="PageLogin.jsp"><input type="button" value="clicca qui" style="background-color: #ffd963; text-align: center;color:black; font-weight:bold; border: 2px solid black;"></a>
 </div>
 
 <%@ include file = "../fragments/footerSemplice.jsp" %>

@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="./image/icona_utente.jpg">
+<link rel="stylesheet" type="text/css" href="./css/Bottone.css">
+<title>lista ordini nome cliente </title>
 </head>
 <body>
 <%@ include file = "../fragments/headerAmministratore.jsp" %>
@@ -25,7 +27,7 @@ if (utente.size() == 0){
 else {
 %>
 
-<center>
+<div class="f">
 <table>
 <tr>
 <th> Id dell'ordine </th>
@@ -45,7 +47,7 @@ if (utente != null && utente.size() != 0) {
 <td> <%= ben.getIdOrdine() %> </td>
 <td> <%= ben.getStatoOrdine() %> </td>
 <td> <%= ben.getDataOrdine() %> </td>
-<td> <%= ben.getPrezzoTot() %> </td>
+<td> <%= String.format("%.2f",ben.getPrezzoTot()) %> </td>
 </tr>
 
 
@@ -55,7 +57,6 @@ if (utente != null && utente.size() != 0) {
 	}%>
 
 </table>
-</center>
-
+</div>
 </body>
 </html>

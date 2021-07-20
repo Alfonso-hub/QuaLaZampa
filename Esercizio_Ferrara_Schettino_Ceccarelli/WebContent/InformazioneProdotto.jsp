@@ -11,26 +11,28 @@
 <body>
 <%@ include file = "../fragments/header.jsp" %>
 <% ProdottiBean bean= (ProdottiBean) request.getAttribute("informazioni prodotto");
-int quantit= (int) request.getAttribute("quantit");
- %>
+int quantit= (int) request.getAttribute("quantit"); 
+%>
 
-<h1 align="center">Dettagli del Prodotto Acquistato:<br> <%= bean.getNome() %> </h1>
+
+<h1 align="center">Dettagli del Prodotto Acquistato:<br> 
+<img src="./image/<%= bean.getPat().substring(bean.getPat().lastIndexOf("image")+6) %>"><br>
+<%= bean.getNome() %> </h1>
 
 <p align="center">
-
 Codice Prodotto: <b><%= bean.getId() %></b><br>
 Descrizione:<br> <b><%= bean.getDescrizione() %></b><br>
-Prezzo del singolo Prodotto: <b><%= bean.getPrezzo() %> &euro; </b><br> 
+Prezzo del singolo Prodotto: <b><%= String.format("%.2f",bean.getPrezzo()) %> &euro; </b><br> 
 IVA <b><%= bean.getIva() %></b><br>
 Quantità acquistata <b><%= quantit %></b></p>
 
 
-
-
-
 <div align="center">
-<a href="ProdottiView.jsp">
-<input type="button"  class="small" value="visualizza i prodotti">
+<a href="ProdottiView.jsp" style="color:white;">
+<input type="button"  class="small" value="Visualizza i prodotti">
+</a>
+<a href="Ordini?action=ordiniEffettuati">
+<input type="button"  class="small" value="Visualizza lista ordini">
 </a>
 </div>
 <br><br>
