@@ -16,7 +16,7 @@ int quantit= (int) request.getAttribute("quantit");
 
 
 <h1 align="center">Dettagli del Prodotto Acquistato:<br> 
-<img src="./image/<%= bean.getPat().substring(bean.getPat().lastIndexOf("image")+6) %>"><br>
+<img src="./image/<%= bean.getPat().substring(bean.getPat().lastIndexOf("image")+6) %>"height="200" width="200"><br>
 <%= bean.getNome() %> </h1>
 
 <p align="center">

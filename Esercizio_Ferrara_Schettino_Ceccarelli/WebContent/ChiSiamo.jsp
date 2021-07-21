@@ -78,8 +78,10 @@ width: 100%;
 <%@ include file = "../fragments/header.jsp" %>
 <h1 align="center">Chi Siamo</h1>
 
-<p class="p1">QuaLaZampa nasce nel 2021 da un gruppo di studenti dell'Università degli Studi di Salerno che 
-hanno pensato di realizzare il sito-web QuaLaZampa dedicato a chi ama gli animali come loro.
+<p class="p1"> 
+QuaLaZampa nasce nel 2021 da un gruppo di studenti dell'Università degli Studi di Salerno che 
+hanno pensato di realizzare un e-commerce finalizzato alla vendita di prodotti per gli animali. 
+E' stato realizzato per chi come noi ama gli amici a quattro zampe.
 <br>Conosciamo meglio gli sviluppatori:</p>
 
 <div class="row">

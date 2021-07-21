@@ -35,5 +35,6 @@
   </div>
   </div>
   
-  <p> &#169; QuaLaZampa 2021</p>
+  <p align="center"> &#169; QuaLaZampa 2021</p>
+  <br>
 </footer>
