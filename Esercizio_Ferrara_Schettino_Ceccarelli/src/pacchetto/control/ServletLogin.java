@@ -17,7 +17,6 @@ import pacchetto.model.UtentiModelDM;
 @WebServlet("/Login")
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  UtentiModelDM user = new UtentiModelDM();
     
   public ServletLogin() {
         super();
