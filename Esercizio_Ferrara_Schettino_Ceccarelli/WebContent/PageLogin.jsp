@@ -27,7 +27,6 @@
 
 <input type="button" class="login" id="submit" value="Accedi"><br>
 
-<script src="./resources/ajaxLogin.js"></script>
 
 <br>
 <div class="clicca">
@@ -38,5 +37,7 @@ Per procedere come ospite invece <a href="ProdottiView.jsp"><input type="button"
 </div>
 
 <%@ include file = "../fragments/footerSemplice.jsp" %>
+<script src="./resources/ajaxLogin.js"></script>
+
 </body>
 </html>

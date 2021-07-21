@@ -32,6 +32,10 @@ public class ServletLogin extends HttpServlet {
 		try{
 				ClienteBean cerca = user.cercaUtente(email, pw);
 				
+				if(cerca.getId() == -1) {
+					out.print("Nulla");
+				}
+					
 				if((cerca.getId() != -1) && (user.cercaAmministratore(email, pw))) {
 					request.getSession().setAttribute("accedi", cerca);
 					out.print("Admin");
