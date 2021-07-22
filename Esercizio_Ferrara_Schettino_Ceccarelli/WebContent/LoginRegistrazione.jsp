@@ -37,7 +37,7 @@
 <input type="password" name="rip password" id="ripPassword" placeholder="Reinserisci password" required>
 
 <label><b>Telefono:</b></label>
-<input type="text" name="telefono" id="telefono" placeholder="Inserisci num.Telefono" required>
+<input type="text" name="telefono" id="telefono" placeholder="Inserisci num.Telefono: 123 123 1234" required>
 
 <label><b>Codice Fiscale:</b></label>
 <input type="text" name="codice" id="codice" placeholder="Inserisci codice fiscale" required>

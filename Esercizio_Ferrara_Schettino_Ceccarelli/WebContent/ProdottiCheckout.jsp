@@ -29,9 +29,6 @@ la ringraziano per aver scelto QuaLaZampa.
 <br>Torni presto ad acquistare!</p>
 </div>
 <div class="container" align="center">
-<a style="color: white" href="ProdottiCarrello.jsp">
-<input type="button" class="small" value="Visualizza il carrello">
-</a>
 <a style="color: white" href="ProdottiView.jsp">
 <input type="button" class="small" value="Torna alla lista prodotti">
 </a>
